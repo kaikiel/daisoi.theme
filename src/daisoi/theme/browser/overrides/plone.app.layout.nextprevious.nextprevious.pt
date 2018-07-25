@@ -1,0 +1,49 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     tal:define="enabled view/enabled|nothing;
+                 isViewTemplate view/isViewTemplate|nothing"
+     tal:condition="python:enabled and isViewTemplate"
+     tal:omit-tag=""
+     i18n:domain="daisol.theme">
+
+  <tal:block define="portal_url view/site_url;">
+
+    <nav class="pagination"
+         tal:define="next view/next;
+                     previous view/previous"
+         tal:condition="python:previous is not None or next is not None">
+
+      <ul class="page-prev-next">
+
+        <li class="" tal:condition="previous">
+          <a title="Go to previous item"
+             class="prev"
+             i18n:attributes="title title_previous_item"
+             tal:attributes="href previous/url">
+            
+            <span  tal:omit-tag="" i18n:translate="">
+              prev
+            </span>
+          </a>
+        </li>
+
+        <li class="text-right" tal:condition="next">
+          <a title="Go to next item"
+             class="next"
+             i18n:attributes="title title_next_item"
+             tal:attributes="href next/url">
+            <span tal:omit-tag="" i18n:translate="">
+              next
+            </span>
+            
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </tal:block>
+
+</div>

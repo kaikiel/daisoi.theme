@@ -1,0 +1,120 @@
+<html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="daisoi.theme">
+<!-- PARTNER -->
+<div class="row-partner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="themesflat-spacer clearfix" data-desktop="83" data-mobile="60" data-smobile="60"></div>
+        <div class="themesflat-carousel-box clearfix" data-gap="5" data-column="5" data-column2="3" data-column3="2" data-auto="true">
+          <div class="owl-carousel owl-theme">
+            <tal:repeat tal:repeat="link view/getFriendLink">
+            <div class="themesflat-partner style-1 align-center clearfix">
+              <div class="partner-item">
+                <div class="inner">
+                  <div class="thumb">
+                    <a href="${python: link.getObject().remoteUrl}" target="_blank">
+                      <img src="${link/getURL}/@@images/image" alt="Image" class="partner-default"></a>
+                    <a href="${python: link.getObject().remoteUrl}" target="_blank">
+                      <img src="${link/getURL}/@@images/image" alt="Image" class="partner-color"></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /themesflat-partner -->                            
+            </tal:repeat>
+          </div>
+        </div><!-- /.themesflat-carousel-box -->
+        <div class="themesflat-spacer clearfix" data-desktop="66" data-mobile="60" data-smobile="60"></div>
+      </div><!-- /.col-md-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div>
+<!-- END PARTNER -->
+
+
+<!-- Footer -->
+<footer id="footer" class="clearfix">
+  <div id="footer-widgets" class="container">
+    <div class="themesflat-row gutter-30">
+      <div class="col span_1_of_3">
+        <div class="widget widget_text">
+          <div class="textwidget">
+            <p class="footer-logo">
+              <a href="${view/context/portal_url}"><img src="${view/getSiteLogo}" alt="Image" width="170" height="34"></a>
+            </p>
+
+            <p class="margin-bottom-15">${python: view.getCompanyInfo()['description']}</p>
+
+            <ul>
+              <li>
+                <div class="inner">
+                  <span class="fa fa-map-marker"></span>
+                  <span class="text">${python: view.getCompanyInfo()['address']}</span>
+                </div>
+              </li>
+
+              <li class="margin-top-7">
+                <div class="inner">
+                  <span class=" font-size-14 fa fa-envelope"></span>
+                  <span class="text">${python: view.getCompanyInfo()['email']}</span>
+                </div>
+              </li>
+
+              <li>
+                <div class="inner">
+                  <span class="fa fa-phone"></span>
+                  <span class="text">${python: view.getCompanyInfo()['phone']}</span>
+                </div>
+              </li>
+
+              <li>
+                <div class="inner">
+                  <span class="fa fa-fax"></span>
+                  <span class="text">${python: view.getCompanyInfo()['fax']}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div><!-- /.widget_text -->
+        <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="35"></div>
+      </div><!-- /.col -->
+      <tal:repeat repeat="root view/getSiteMap">
+        <div class="span_5_of_1">
+          <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="0"></div>
+          <div class="widget widget_lastest">
+            <h2 class="widget-title"><span>${python: root['Title']}</span></h2>
+            <ul class="lastest-posts data-effect clearfix">
+              <tal:repeat repeat="sub python: root['children']">
+                <li class="clearfix">
+                  <a>${python: sub['Title']}</a>
+                </li>
+              </tal:repeat>
+            </ul>
+          </div><!-- /.widget_lastest -->             
+        </div><!-- /.col -->
+      </tal:repeat>
+    </div><!-- /.themesflat-row -->
+  </div><!-- /#footer-widgets -->
+</footer><!-- /#footer -->
+
+<!-- Bottom -->
+<div id="bottom" class="clearfix has-spacer">
+  <div id="bottom-bar-inner" class="container">
+    <div class="bottom-bar-inner-wrap">
+      <div class="bottom-bar-content">
+        <div id="copyright">
+        </div>
+      </div><!-- /.bottom-bar-content -->
+      <div class="bottom-bar-menu">
+        <ul class="bottom-nav">
+          <tal:repeat repeat="tab view/getTopTabs">
+            <li class="menu-item">
+              <a href="${python: tab['url']}">${python: tab['name']}</a>
+            </li>
+          </tal:repeat>
+        </ul>
+      </div><!-- /.bottom-bar-menu -->
+    </div><!-- /.bottom-bar-inner-wrap -->        
+  </div><!-- /#bottom-bar-inner -->
+</div><!-- /#bottom -->
+</html>

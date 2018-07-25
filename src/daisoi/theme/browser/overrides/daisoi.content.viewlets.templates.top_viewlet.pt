@@ -1,0 +1,24 @@
+<html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="daisoi.theme">
+<!-- Top Bar -->    
+<div id="top-bar" tal:define="item view/getCompanyInfo">
+  <div id="top-bar-inner" class="container">
+    <div class="top-bar-inner-wrap">
+      <div class="top-bar-content">
+        <div class="inner">
+          <span class="address content">${python: item['address']}</span>
+          <span class="phone content">${python: item['phone']}</span>
+        </div>              
+      </div><!-- /.top-bar-content -->
+      <div class="top-bar-socials">
+        <div class="inner">
+          <span class="text" i18n:translate="">Follow us:</span>
+          <span class="icons">
+            <a href="${python: item['fb_link']}"><i class="fa fa-facebook"></i></a>
+          </span>
+        </div>
+      </div><!-- /.top-bar-socials -->
+    </div>          
+  </div>
+</div><!-- /#top-bar -->
+</html>

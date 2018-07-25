@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="daisoi.theme">
+<body>
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+          tal:define="toc context/table_of_contents|nothing;">
+<div id="site-content" class="site-content clearfix">
+  <div id="inner-content" class="inner-content-wrap">
+    <metal:listingmacro define-macro="listing">
+      <tal:results define="batch view/batch;">
+        <tal:listing condition="batch">
+          <tal:repeat tal:repeat="item batch">
+            <tal:define tal:define="obj item/getObject;
+                                    item_title item/Title;
+                                    item_url item/getURL;
+                                    item_description obj/description;
+                                    item_created item/created;">
+              <article class="hentry data-effect">
+                <div class="post-media has-effect-icon offset-v-25 offset-h-24 data-effect-item clerafix">
+                  <a href="${item_url}"><img src="${item_url}/@@images/image" alt="Image"></a>
+                  <div class="post-calendar">                  
+                    <span class="inner">
+                      <span class="entry-calendar">
+                        <span class="day">${item_created/day}</span>
+                        <span class="month">${item_created/Mon}</span>
+                      </span>
+                    </span>               
+                  </div>
+                </div><!-- /.post-media -->
+
+                <div class="post-content-wrap clearfix">
+                  <h2 class="post-title">
+                    <span class="post-title-inner">
+                      <a href="${item_url}">${item_title}</a>
+                    </span>
+                  </h2><!-- /.post-title -->
+                  <div class="post-meta">
+                    <div class="post-meta-content">
+                      <div class="post-meta-content-inner">
+                        <span class="post-date item"><span class="inner"><span class="entry-date">
+                            ${python: item_created.strftime('%b %d, %Y')}
+                        </span></span></span>
+                        <span class="post-by-author item"><span class="inner">By: ${item/Creator}</span></span>
+                      </div>
+                    </div>
+                  </div><!-- /.post-meta -->
+                  <div class="post-content post-excerpt">
+                    <p>${item_description}</p>
+                  </div><!-- /.post-excerpt -->
+                  <div class="post-read-more">
+                    <div class="post-link">
+                      <a href="${item_url}" i18n:translate="">See More</a>
+                    </div>
+                  </div>
+                </div><!-- /.post-content-wrap -->
+              </article><!-- /.hentry -->
+            </tal:define>
+          </tal:repeat>
+          <!-- pagination-area-start -->
+          <div class="themesflat-pagination clearfix">
+            <div metal:use-macro="context/batch_macros/macros/navigation" />
+          </div>
+          <!-- pagination-area-end -->
+
+          <metal:empty metal:define-slot="no_items_in_listing">
+            <p class="discreet"
+                tal:condition="not: view/batch"
+                i18n:translate="">
+              No results were found.
+            </p>
+          </metal:empty>
+        </tal:listing>
+      </tal:results>
+    </metal:listingmacro>
+
+  </div><!-- /#inner-content -->
+</div><!-- /#site-content -->
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+
+

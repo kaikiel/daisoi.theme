@@ -5,7 +5,10 @@
        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
        xmlns:xi="http://www.w3.org/2001/XInclude">
 
-  <theme href="index.html" />
+<xi:include href="backend.xml" />
+<!-- Only theme front end pages -->
+<rules css:if-content="body.frontend#visual-portal-wrapper">
+  <theme href="home.html" />
   <notheme css:if-not-content="#visual-portal-wrapper" />
 
   <rules css:if-content="#portal-top">
@@ -20,16 +23,10 @@
     <!-- Don't use Plone icons, use the theme's -->
     <drop css:content="head link[rel='apple-touch-icon']" />
     <drop css:content="head link[rel='shortcut icon']" />
-    <!-- drop the theme stylesheets -->
-    <drop theme="/html/head/link[rel='stylesheet']" />
-    <!-- CSS -->
-    <after css:theme-children="head" css:content="head link" />
-    <!-- Script -->
-    <after css:theme-children="head" css:content="head script" />
   </rules>
 
   <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
-  <copy attributes="*" css:content="body" css:theme="body" />
+  <merge attributes="class" css:content="body" css:theme="body" />
 
   <!-- move global nav -->
   <replace css:theme-children="#mainnavigation" css:content-children="#portal-mainnavigation" method="raw" />
@@ -51,16 +48,14 @@
       <!-- <p class="pull-right visible-xs">
         <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
       </p> -->
-      <div class="row">
-        <div class="col-xs-12 col-sm-12">
-          <xsl:apply-templates css:select="#content" />
-        </div>
-      </div>
+      <xsl:apply-templates css:select="#content-core" />
+      <!--
       <footer class="row">
         <div class="col-xs-12 col-sm-12">
           <xsl:copy-of css:select="#viewlet-below-content" />
         </div>
       </footer>
+      -->
     </div>
   </replace>
 
@@ -93,10 +88,29 @@
   <replace css:theme="#portal-top" css:content-children="#portal-top" />
 
   <!-- Footer -->
-  <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
+  <!--<replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />-->
 
   <!-- toolbar -->
   <replace css:theme="#portal-toolbar" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
   <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
 
+  <!--edit zone-->
+  <drop css:content="#edit-zone" />
+
+  <!--logo -->
+  <replace css:content="#portal-logo" css:theme-children="#site-log-inner"/>
+
+  <!--nav bar and footer -->
+  <replace css:content-children=".plone-collapse.plone-navbar-collapse" css:theme-children="#main-nav" />
+  <replace css:content="#footer" css:theme="#footer" />
+  <replace css:content="#bottom" css:theme="#bottom" />
+
+
+  <!--pagination-->
+  <replace css:content-children=".pagination" css:theme-children=".themesflat-pagination.clearfix.no-border.padding-top-17" css:if-content=".template-news_view"/>
+
+  <replace css:content="#top-bar" css:theme="#top-bar" />
+  <replace css:content=".row-partner" css:theme=".row-partner" />
+   
+</rules>
 </rules>

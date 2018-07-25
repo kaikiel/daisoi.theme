@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="daisoi.theme">
+<body>
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+          tal:define="toc context/table_of_contents|nothing;">
+
+  <div class="col-md-12">
+    <ul class="themesflat-filter style-1 clearfix">
+      <li id="sAll" onclick="toSubject('')"><a href="#" >All</a></li>
+      <tal:repeat tal:repeat="sub view/getImgSubjects">
+      <li id="s${sub}"><a href="#" onclick="toSubject('${sub}')" >${sub}</a></li>
+      </tal:repeat>
+    </ul>
+
+    <metal:listingmacro define-macro="listing">
+      <tal:results define="batch view/batch;">
+        <tal:listing condition="batch">
+          <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="35" data-smobile="35"></div>
+          <div class="themesflat-project style-2 isotope-project has-margin mg15 data-effect clearfix">
+            <tal:repeat tal:repeat="item batch">
+              <tal:define tal:define="obj item/getObject;
+                                      item_title item/Title;
+                                      item_description obj/description;
+                                      item_url item/getURL;
+                                      item_subject item/Subject;">
+                <div class="project-item" >
+                  <div class="inner">
+                    <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
+                      <img src="${item_url}/@@images/image" alt="Image">
+                      <div class="overlay-effect bg-color-accent"></div>
+                    </div>
+                    <div class="text-wrap">
+                      <h5 class="heading"><a>${item_title}</a></h5>
+                      <div class="elm-meta">
+                        <p style="white-space: pre-line;">${item_description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.product-item -->
+              </tal:define>
+            </tal:repeat>
+          </div><!-- /.themesflat-project -->
+          <div class="button-wrap has-icon icon-left size-14 pf21 text-center">
+            <!-- pagination-area-start -->
+            <div class="themesflat-pagination clearfix">
+              <div metal:use-macro="context/batch_macros/macros/navigation" />
+            </div>
+            <!-- pagination-area-end -->
+          </div>
+
+        </tal:listing>
+        <metal:empty metal:define-slot="no_items_in_listing">
+          <p class="discreet"
+              tal:condition="not: view/batch"
+              i18n:translate="">
+            No results were found.
+          </p>
+        </metal:empty>
+      </tal:results>
+    </metal:listingmacro>
+  </div><!-- /.col-md-12 -->
+
+  <script>
+    document.onreadystatechange = function subColor() {
+        var url = new URL(location.href);
+        _category = url.searchParams.get("p_category");
+        img_subject  = url.searchParams.get("img_subject");
+        if(img_subject != null && img_subject != ""){
+            img_subject = img_subject.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '');
+            $("#s"+img_subject).addClass("active");
+        }else{
+            $("#sAll").addClass("active");
+        }
+    }
+
+    function toSubject(sub){
+      location.replace("?img_subject="+sub)
+    }
+  </script>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+
