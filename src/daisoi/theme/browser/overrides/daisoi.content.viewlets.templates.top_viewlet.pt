@@ -7,7 +7,9 @@
       <div class="top-bar-content">
         <div class="inner">
           <span class="address content">${python: item['address']}</span>
-          <span class="phone content">${python: item['phone']}</span>
+          <span class="phone content" tal:repeat="phone python: view.getCompanyInfo()['phone'].split('\r\n')" class="text">
+            <a href="tel:${phone}">${phone}</a>
+          </span>
         </div>              
       </div><!-- /.top-bar-content -->
       <div class="top-bar-socials">

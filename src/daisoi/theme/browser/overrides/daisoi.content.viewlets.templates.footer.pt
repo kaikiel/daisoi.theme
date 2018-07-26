@@ -55,21 +55,25 @@
 
               <li class="margin-top-7">
                 <div class="inner">
-                  <span class=" font-size-14 fa fa-envelope"></span>
-                  <span class="text">${python: view.getCompanyInfo()['email']}</span>
+                  <span class="font-size-14 fa fa-envelope"></span>
+                  <span class="text" tal:repeat="email python: view.getCompanyInfo()['email'].split('\r\n')" >
+                    <a style="color: rgba(255,255,255,0.8);"  href="mailto:${email}">${email}</a><br>
+                  </span>
                 </div>
               </li>
 
               <li>
                 <div class="inner">
                   <span class="fa fa-phone"></span>
-                  <span class="text">${python: view.getCompanyInfo()['phone']}</span>
+                  <span tal:repeat="phone python: view.getCompanyInfo()['phone'].split('\r\n')" class="text">
+                    <a style="color: rgba(255,255,255,0.8);"  href="tel:${phone}">${phone}</a><br>
+                  </span>
                 </div>
               </li>
 
               <li>
                 <div class="inner">
-                  <span class="fa fa-fax"></span>
+                  <span class="fa fa-print"></span>
                   <span class="text">${python: view.getCompanyInfo()['fax']}</span>
                 </div>
               </li>
@@ -82,14 +86,12 @@
         <div class="span_5_of_1">
           <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="0"></div>
           <div class="widget widget_lastest">
-            <h2 class="widget-title"><span>${python: root['Title']}</span></h2>
-            <ul class="lastest-posts data-effect clearfix">
+            <h2 class="widget-title"><a href="${python: root['getURL']}"><span>${python: root['Title']}</span></a></h2>
               <tal:repeat repeat="sub python: root['children']">
-                <li class="clearfix">
-                  <a>${python: sub['Title']}</a>
-                </li>
+                <p class="clearfix" style="margin: 0 0 5px;">
+                  <a href="${python: sub['getURL']}">${python: sub['Title']}</a>
+                </p>
               </tal:repeat>
-            </ul>
           </div><!-- /.widget_lastest -->             
         </div><!-- /.col -->
       </tal:repeat>

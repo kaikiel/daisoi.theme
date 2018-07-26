@@ -110,6 +110,7 @@
   <replace css:content-children=".pagination" css:theme-children=".themesflat-pagination.clearfix.no-border.padding-top-17" css:if-content=".template-news_view"/>
 
   <replace css:content="#top-bar" css:theme="#top-bar" />
+  <after  css:content="#featured-title" css:theme="#site-header-wrap" css:if-not-content=".template-plone_root_view"/>
   <replace css:content=".row-partner" css:theme=".row-partner" />
    
 </rules>

@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+<aside class="portlet portletNews"
+    i18n:domain="daisoi.content">
+  <div 
+      tal:define="thumb_scale view/thumb_scale;
+                  supress_thumb view/data/no_thumbs;"
+       class="portletContent widget widget_lastest">
+    <h2 class="widget-title"><span i18n:translate="">PRECENT POST</span></h2>
+    <ul class="lastest-posts data-effect clearfix">
+      <tal:newsitems  tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                                  plone_layout context/@@plone_layout;
+                                  portal context/@@plone_portal_state/portal;
+                                  image_scale portal/@@image_scale;
+                                  thumb_scale view/thumb_scale"
+                      tal:repeat="obj view/published_news_items">
+      <li tal:define="oddrow repeat/obj/odd;"
+          tal:attributes="class python:oddrow and 'portletItem even clearfix' or 'portletItem odd clearfix'">
+        <div class="thumb data-effect-item has-effect-icon">
+          <img tal:condition="python:obj.getIcon and thumb_scale"
+               src="${obj/getURL}/@@images/image/preview" />
+          <div class="overlay-effect bg-color-2"></div>
+          <div class="elm-link">
+            <a href="page-blog-single.html" class="icon-2"></a>
+          </div>
+        </div>
+        <div class="text">
+          <h3><a  href=""
+              class="tile"
+              tal:attributes="href obj/getURL;
+                              title obj/Description">
+
+             <span tal:replace="obj/pretty_title_or_id">
+               Plone 5.1 announced!
+             </span>
+          </a></h3>
+          <span class="post-data"><span class="portletItemDetails entry-date"
+                tal:content="python:toLocalizedTime(obj.Date)">May 5</span></span>
+        </div>
+      </li>
+      </tal:newsitems>
+    </ul>
+  </div>
+</aside>
+</html>

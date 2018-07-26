@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-07-25 10:16+0000\n"
+"POT-Creation-Date: 2018-07-26 08:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,16 +29,37 @@ msgstr ""
 msgid "ABOUT Daisoi"
 msgstr ""
 
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:26
 #: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:160
 msgid "Contact Us"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:15
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:28
+msgid "Contact Us Desctiption"
+msgstr ""
+
+#: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:17
 msgid "Follow us:"
+msgstr ""
+
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:64
+msgid "Head Office"
+msgstr ""
+
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:57
+msgid "INFOMATION"
 msgstr ""
 
 #: ../configure.zcml:27
 msgid "Installs the Plone theme package daisoi.theme."
+msgstr ""
+
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:178
+msgid "Main Service"
+msgstr ""
+
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:186
+msgid "Main Service Description"
 msgstr ""
 
 #: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:71
@@ -68,6 +89,11 @@ msgstr ""
 
 #: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:461
 msgid "Solve the problems"
+msgstr ""
+
+#: ../browser/overrides/daisoi.content.portlets.img_subject_portlet.pt:5
+#: ../browser/overrides/daisoi.content.portlets.news_subject_portlet.pt:5
+msgid "Tags"
 msgstr ""
 
 #: ../configure.zcml:36

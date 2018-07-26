@@ -48,7 +48,7 @@
           <div class="post-tags ">
             <span>Tags :</span>
             <tal:repeat tal:repeat="sub view/context/Subject">
-              <a href="#">${sub}</a>
+              <a href="${python: view.getNewsSubject()[sub]['getURL']}">${sub}</a>
             </tal:repeat>
           </div>
           <div class="post-socials ">

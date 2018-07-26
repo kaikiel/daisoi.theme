@@ -302,7 +302,6 @@
                         },
                     },
                 });
-
         }
         // json loop
         $.each(data, function (key, val) {

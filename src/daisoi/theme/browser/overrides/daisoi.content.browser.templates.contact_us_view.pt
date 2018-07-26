@@ -1,20 +1,122 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-    xmlns:tal="http://xml.zope.org/namespaces/tal"
-    xmlns:metal="http://xml.zope.org/namespaces/metal"
-    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    lang="en"
-    metal:use-macro="context/main_template/macros/master"
-    i18n:domain="daisoi.theme">
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="daisoi.theme">
 <body>
 <metal:content-core fill-slot="content-core">
 <metal:content-core define-macro="content-core"
-                    tal:define="toc context/table_of_contents|nothing;">
-
-${view/pdb}
-
+          tal:define="toc context/table_of_contents|nothing;">
+<div id="site-content" class="site-content clearfix">
+  <div id="inner-content" class="inner-content-wrap">
+     <div class="page-content">
+       <!-- CONTACT -->
+      <div class="row-contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="themesflat-spacer clearfix" data-desktop="61" data-mobile="60" data-smobile="60"></div>
+            </div><!-- /.col-md-12 -->
+          </div><!-- /.row -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="themesflat-headings style-2 clearfix">
+                <h2 class="heading" i18n:translate="">Contact Us</h2>
+                <div class="sep has-width w80 accent-bg clearfix"></div>                         
+                <p class="sub-heading" i18n:translate="">Contact Us Desctiption</p>
+              </div>
+              <div class="themesflat-spacer clearfix" data-desktop="36" data-mobile="35" data-smobile="35"></div>
+              <div class="themesflat-contact-form style-2 clearfix">
+                <form action="#" method="post" class="contact-form wpcf7-form">
+                  <span class="wpcf7-form-control-wrap your-name">
+                    <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name*" required>
+                  </span>
+                  <span class="wpcf7-form-control-wrap your-phone">
+                    <input type="text" tabindex="2" id="phone" name="phone" value="" class="wpcf7-form-control" placeholder="Phone">
+                  </span>                              
+                  <span class="wpcf7-form-control-wrap your-email">
+                    <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="Your Email*" required>
+                  </span>
+                  <span class="wpcf7-form-control-wrap your-subject">
+                    <input type="text" tabindex="4" id="subject" name="subject" value="" class="wpcf7-form-control" placeholder="Subject">
+                  </span>
+                  <span class="wpcf7-form-control-wrap your-message">
+                     <textarea name="textarea" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message*" required ></textarea>
+                  </span>                               
+                  <span class="wrap-submit">
+                    <input type="submit" value="SEND US" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                  </span>                              
+                </form>
+              </div><!-- /.themesflat-contact-form -->
+            </div><!-- /.col-md-6 -->
+            <div class="col-md-6">
+              <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="35"></div>
+              <div class="themesflat-headings style-2 clearfix">
+                <h2 class="heading" i18n:translate="">INFOMATION</h2>
+                <div class="sep has-width w80 accent-bg clearfix"></div>                         
+              </div>
+              <div class="themesflat-spacer clearfix" data-desktop="36" data-mobile="35" data-smobile="35"></div>
+              <div class="themesflat-tabs style-1 w168 clearfix">
+                <ul class="tab-title clearfix">
+                  <li class="item-title active">
+                    <span class="inner" i18n:translate="">Head Office</span>
+                  </li>
+                </ul>
+                <div class="tab-content-wrap clearfix">
+                  <div class="tab-content">
+                    <div class="item-content">                              
+                      <ul>
+                        <li class="clearfix">
+                          <div class="inner">
+                            <span class="fa fa-map-marker"></span>
+                            <span class="text" tal:content="python: view.getCompanyInfo()['address']"></span>
+                          </div>
+                        </li>
+                        <li class="clearfix">
+                          <div class="inner">
+                            <span class="fa fa-envelope"></span>
+                            <span class="text" tal:repeat="email python: view.getCompanyInfo()['email'].split('\r\n')" >
+                              <a style="color: #555555;"  href="mailto:${email}">${email}</a><br>
+                            </span>
+                          </div>
+                        </li>
+                        <li class="clearfix">
+                          <div class="inner">
+                            <span class="fa fa-phone"></span>
+                            <span tal:repeat="phone python: view.getCompanyInfo()['phone'].split('\r\n')" class="text">
+                              <a style="color: #555555;"  href="tel:${phone}">${phone}</a><br>
+                            </span>
+                          </div>
+                        </li>
+                        <li class="clearfix">
+                          <div class="inner">
+                            <span class="fa fa-print"></span>
+                            <span class="text" tal:content="python: view.getCompanyInfo()['fax']"></span>
+                          </div>
+                        </li>
+                      </ul>                           
+                    </div>
+                  </div><!-- /.tab-content -->
+                </div>
+              </div><!-- /.themesflat-tabs -->
+              <div class="themesflat-spacer clearfix" data-desktop="20" data-mobile="35" data-smobile="35"></div>
+              <div class="themesflat-map" data-address="${python: view.getCompanyInfo()['address']}"></div>
+            </div><!-- /.col-md-6 -->
+          </div><!-- /.row -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="themesflat-spacer clearfix" data-desktop="78" data-mobile="60" data-smobile="60"></div>
+            </div><!-- /.col-md-12 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </div>
+      <!-- END CONTACT -->
+     </div><!-- /.page-content -->
+  </div><!-- /#inner-content -->
+</div><!-- /#site-content -->
 </metal:content-core>
 </metal:content-core>
 </body>
 </html>
-
-

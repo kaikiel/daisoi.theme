@@ -13,8 +13,8 @@
   <div class="col-md-12">
     <ul class="themesflat-filter style-1 clearfix">
       <li id="sAll" onclick="toSubject('')"><a href="#" >All</a></li>
-      <tal:repeat tal:repeat="sub view/getImgSubjects">
-      <li id="s${sub}"><a href="#" onclick="toSubject('${sub}')" >${sub}</a></li>
+      <tal:repeat tal:repeat="sub view/getImgSubject">
+        <li id="s${sub}"><a href="" onclick="toSubject('${sub}')" >${sub}</a></li>
       </tal:repeat>
     </ul>
 

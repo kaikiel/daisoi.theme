@@ -235,7 +235,7 @@ input[type="submit"]:focus { outline: 0; background-color: #222; }
 :-ms-input-placeholder { color: #999; }
 
 /* Links */
-a { color: #222; outline: 0; text-decoration: none; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease;  -ms-transition: all 0.3s ease;   -o-transition: all 0.3s ease;      transition: all 0.3s ease;}
+a { color: #949494; outline: 0; text-decoration: none; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease;  -ms-transition: all 0.3s ease;   -o-transition: all 0.3s ease;      transition: all 0.3s ease;}
 a:hover,
 a:focus,
 a:active { outline: 0; color: #ec6c00; text-decoration: none }
@@ -751,8 +751,7 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 
 /* Widgets
 -------------------------------------------------------------- */
-#sidebar .widget { position: relative; z-index: 1; margin-top: 56px; }
-#sidebar .widget:first-child { margin: 0px; }
+#sidebar .widget { position: relative; z-index: 1; margin-bottom: 56px; }
 
 /* Center */
 .widget.align-center { text-align: center; }

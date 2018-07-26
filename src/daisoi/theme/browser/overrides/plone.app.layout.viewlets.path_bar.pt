@@ -1,0 +1,37 @@
+<div id="featured-title" class="featured-title clearfix">
+  <div id="featured-title-inner" class="container clearfix">
+    <div class="featured-title-inner-wrap">                 
+      <nav id="portal-breadcrumbs" class="plone-breadcrumb"
+               i18n:domain="plone"
+               tal:define="breadcrumbs view/breadcrumbs">
+        <div class="container" id="breadcrumbs">
+          <div class="breadcrumbs-inner">
+            <div class="breadcrumb-trail">
+              <a i18n:translate="tabs_home" class="trail-begin"
+                  tal:attributes="href view/navigation_root_url">Home</a>
+              <tal:repeat tal:repeat="crumb breadcrumbs">
+                <tal:item tal:define="is_last repeat/crumb/end;
+                                        url crumb/absolute_url;
+                                        title crumb/Title">
+                  <span class="sep">|</span>
+                  <a href="#"
+                     class="trail-begin"
+                     tal:omit-tag="not: url"
+                     tal:condition="python:not is_last"
+                     tal:attributes="href url"
+                     tal:content="title">
+                          crumb
+                  </a>
+                  <span class="trail-end"
+                        id="breadcrumbs-current"
+                        tal:condition="is_last"
+                        tal:content="title">crumb</span>
+                </tal:item>
+              </tal:repeat>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

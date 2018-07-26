@@ -135,6 +135,8 @@
     <drop css:theme="#portal-top" />
     <drop css:theme="#portal-footer-wrapper" />
 
+    <drop css:content="#top-bar" />
+    <drop css:content="#featured-title" />
     <drop css:content="#footer" />
     <drop css:content="#bottom" />
     <drop css:content=".row-partner" />
