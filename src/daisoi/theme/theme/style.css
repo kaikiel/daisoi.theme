@@ -833,6 +833,17 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 
 .widget.widget_list .list-item > a:hover { color: #ec6c00; }
 .widget.widget_list .list-item > a:hover:before { background-color: #ec6c00; }
+/* for plone navigation portlet ------------------------------------------------------------------ */
+.widget.widget_list .navTreeItem:first-child { border-top: 0px; }
+.widget.widget_list .navTreeItem { border-top: 1px solid rgba(255,255, 255, 0.1); padding: 12px 0px; }
+.widget.widget_list .navTreeItem:first-child { border-top: 0px; }
+.widget.widget_list .navTreeItem > a { position: relative; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 500; display: block; }
+.widget.widget_list .navTreeItem > a:before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); background-color: #b3b3b3; width: 6px; height: 6px; border-radius: 50%; }
+.widget.widget_list .navTreeItem a { padding-left: 20px; display: block; overflow: hidden; }
+
+.widget.widget_list .navTreeItem > a:hover { color: #ec6c00; }
+.widget.widget_list .navTreeItem > a:hover:before { background-color: #ec6c00; }
+/* for plone navigation portlet ----------------------------------------------------------------- */
 
 /* Widget lastest twitter */
 .widget.widget_lastest_twitter ul { margin: 0px; }

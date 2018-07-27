@@ -48,7 +48,9 @@
       <!-- <p class="pull-right visible-xs">
         <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
       </p> -->
-      <xsl:apply-templates css:select="#content-core" />
+      <xsl:if test="not(contains(/html/body/@class, 'template-plone_root_view'))">
+        <xsl:apply-templates css:select="#content-core"  />
+      </xsl:if>
       <!--
       <footer class="row">
         <div class="col-xs-12 col-sm-12">
@@ -57,6 +59,12 @@
       </footer>
       -->
     </div>
+  </replace>
+  <!-- Central column -->
+  <replace css:theme="#content-index" method="raw">
+      <xsl:if test="(contains(/html/body/@class, 'template-plone_root_view'))">
+      <xsl:apply-templates css:select="#content-core" />
+      </xsl:if>
   </replace>
 
   <!-- Alert message -->
@@ -102,6 +110,7 @@
 
   <!--nav bar and footer -->
   <replace css:content-children=".plone-collapse.plone-navbar-collapse" css:theme-children="#main-nav" />
+  <replace css:content="#header-search" css:theme="#header-search" />
   <replace css:content="#footer" css:theme="#footer" />
   <replace css:content="#bottom" css:theme="#bottom" />
 

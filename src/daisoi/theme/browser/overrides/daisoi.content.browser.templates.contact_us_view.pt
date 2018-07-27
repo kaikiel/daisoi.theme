@@ -9,6 +9,7 @@
 <metal:content-core fill-slot="content-core">
 <metal:content-core define-macro="content-core"
           tal:define="toc context/table_of_contents|nothing;">
+
 <div id="site-content" class="site-content clearfix">
   <div id="inner-content" class="inner-content-wrap">
      <div class="page-content">
@@ -43,7 +44,7 @@
                     <input type="text" tabindex="4" id="subject" name="subject" value="" class="wpcf7-form-control" placeholder="Subject">
                   </span>
                   <span class="wpcf7-form-control-wrap your-message">
-                     <textarea name="textarea" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message*" required ></textarea>
+                     <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message*" required ></textarea>
                   </span>                               
                   <span class="wrap-submit">
                     <input type="submit" value="SEND US" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">

@@ -287,16 +287,18 @@
     var googleMap = function () {
         // gmap default
         if ($().gmap3) {
-            var data = JSON.parse('[{"address":"Westwell Leacon, Ashford, Vương Quốc Anh","content":""}]');
+            var address = $(".themesflat-map").data("address");
+            var data = JSON.parse('[{"address":"'+ address +'","content":""}]');
+            var geocoder = new google.maps.Geocoder();
             $(".themesflat-map")
                 .gmap3({
                     map: {
                         options: {
-                            zoom: 10,
-                            center: [51.1946026,0.8140602,14.5],
-                            mapTypeId: 'Autora',
+                            zoom: 15,
+                            center: [24.9654143,121.2261115],
+                            mapTypeId: 'Daisoi',
                             mapTypeControlOptions: {
-                                mapTypeIds: ['Autora', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]
+                                mapTypeIds: ['Daisoi', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]
                             },
                             scrollwheel: true
                         },
@@ -310,15 +312,15 @@
                     values: [{
                         address: val.address,
                         options: {
-                            icon: "./assets/img/map/icon-map.png"
+                            icon: "++theme++theme/assets/img/map/icon-map.png"
                         }
-                        
+
                         }]
                 },
                 styledmaptype: {
-                    id: "Autora",
+                    id: "Daisoi",
                     options: {
-                        name: "Autora"
+                        name: "Daisoi"
                     },
                     styles: [
                         {
@@ -514,7 +516,15 @@
 
         activeLayout(); 
         activePattern();
-    }; 
+    };
+
+    var colorbox = function(){
+        $('.icon-1.icon-search').click( function(){
+            $(this).colorbox()
+            debugger
+        });        
+    }
+ 
     // Dom Ready
     $(function() {
         flatSpacer();
@@ -529,6 +539,7 @@
         flatCounter();
         flatIsotope();
         swClick();
+        colorbox();
         $( window ).load(function() {
             flatOwl();
             Parallax();

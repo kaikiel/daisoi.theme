@@ -41,3 +41,15 @@
   </nav>
 
 </tal:sections>
+
+<div id="header-search" i18n:domain="daisoi.theme">
+  <a href="#" class="header-search-icon">
+    <span class="search-icon fa fa-search">
+    </span>
+  </a>
+  <form role="search" method="get" class="header-search-form" action="news">
+    <label class="screen-reader-text" i18n:translate="">Search</label>
+    <input type="text" value="" name="searchableText" class="header-search-field" placeholder="Search..." i18n:attributes="placeholder">
+    <button type="submit" class="header-search-submit" title="Search" i18n:attributes="title" i18n:translate="">Search</button>
+  </form>
+</div><!-- /#header-search -->

@@ -1,0 +1,56 @@
+<tal:block>
+<aside class="portlet portletNavigationTree"
+    role="navigation"
+    tal:define="root view/navigation_root">
+
+    <div class="widget widget_list" i18n:domain="plone">
+      <div class="inner">
+        <nav class="portletContent lastItem">
+            <ul class="list-wrap navTree navTreeLevel0">
+                <li tal:define="selectedClass view/root_item_class;
+                                li_class python:selectedClass and ' navTreeCurrentNode' or '';
+                                normalizeString nocall:context/plone_utils/normalizeString;
+                                section_title root/Title;
+                                section python:normalizeString(section_title);"
+                    tal:condition="view/include_top"
+                    tal:attributes="class string:list-item navTreeItem navTreeTopNode${li_class} nav-section-${section}">
+                    <div tal:define="rootIsPortal view/root_is_portal;
+                                     root_type root/portal_type;
+                                     root_type_class python:'contenttype-' + normalizeString(root_type);
+                                     root_class python:rootIsPortal and 'contenttype-plone-site' or root_type_class;">
+                       <a tal:attributes="href root/absolute_url;
+                                          title root/Description;
+                                          class python:' '.join([root_class, selectedClass]).strip();">
+                       <span tal:omit-tag=""
+                             tal:condition="rootIsPortal"
+                             i18n:translate="tabs_home">Home</span>
+                       <span class="text"
+                             tal:condition="not:rootIsPortal"
+                             tal:replace="root/Title">Root item title</span>
+                       </a>
+                    </div>
+                </li>
+                <li class="list-item" tal:replace="structure view/createNavTree">
+                    SUBTREE
+                </li>
+            </ul>
+        </nav>
+      </div>
+    </div>
+
+    <footer i18n:domain="daisoi.theme">
+      <div class="widget widget_help align-center has-shadow no-sep has-border border-solid">
+        <div class="inner">
+          <h2 class="widget-title margin-bottom-14"><span i18n:translate="">HOW CAN WE HELP ?</span></h2>
+          <p class="text line-height-26 margin-bottom-23" i18n:translate="">
+            Are you interested in finding out how we can make your project. Please email us.
+          </p>
+          <div class="elm-button">
+            <a href="${view/context/portal_url}/contact_us" class="themesflat-button bg-accent pd30" i18n:translate="">Contact Us</a>
+          </div>
+        </div>                
+      </div>
+    </footer>
+</aside>
+</tal:block>
+

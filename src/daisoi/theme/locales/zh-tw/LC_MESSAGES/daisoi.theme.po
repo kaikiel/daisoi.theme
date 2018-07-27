@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-07-26 08:36+0000\n"
+"POT-Creation-Date: 2018-07-27 01:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,8 +26,13 @@ msgstr ""
 msgid "ABOUT Daisoi"
 msgstr "關於大碩"
 
+#: ../browser/overrides/plone.app.portlets.portlets.navigation.pt:45
+msgid "Are you interested in finding out how we can make your project. Please email us."
+msgstr "您是否有興趣了解我們如何製作您的項目。請發郵件給我們。"
+
 #: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:26
 #: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:160
+#: ../browser/overrides/plone.app.portlets.portlets.navigation.pt:49
 msgid "Contact Us"
 msgstr "聯絡我們"
 
@@ -38,6 +43,10 @@ msgstr ""
 #: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:17
 msgid "Follow us:"
 msgstr "跟著我們:"
+
+#: ../browser/overrides/plone.app.portlets.portlets.navigation.pt:44
+msgid "HOW CAN WE HELP ?"
+msgstr "我們能幫您什麼嗎？"
 
 #: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:64
 msgid "Head Office"
@@ -59,7 +68,7 @@ msgstr "主要服務"
 msgid "Main Service Description"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:71
+#: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:72
 #: ../browser/overrides/daisoi.content.browser.templates.folder_performance_view.pt:59
 msgid "No results were found."
 msgstr "查詢不到任何結果"
