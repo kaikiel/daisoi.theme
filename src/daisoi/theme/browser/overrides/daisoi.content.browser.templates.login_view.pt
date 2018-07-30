@@ -11,13 +11,6 @@
                     tal:define="toc context/table_of_contents|nothing;">
 
 <style>
-<!-- table,td{
-    border: none;
-}
-iframe{
-    box-shadow: 0px 0px 0px 15px silver;
-    border-radius: 5px;
-} -->
 .fa-play{
     background: #f09e08;
     border-radius: 5px;
