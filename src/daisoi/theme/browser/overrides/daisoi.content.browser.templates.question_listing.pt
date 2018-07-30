@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="daisoi.theme">
+<body>
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+          tal:define="toc context/table_of_contents|nothing;">
+
+<style>
+.fa-play{
+    background: #f09e08;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 5px 5px 8px;
+    vertical-align: middle;
+    font-size: 14px;
+    margin-right: 5px;
+}
+</style>
+  <div class="col-md-12">
+
+    <metal:listingmacro define-macro="listing">
+      <tal:results define="batch view/batch;">
+        <tal:listing condition="batch">
+            <tal:repeat tal:repeat="item batch">
+              <tal:define tal:define="obj item/getObject;
+                                      item_title item/Title;
+                                      item_description obj/description;
+                                      item_url item/getURL;
+                                      item_subject item/Subject;">
+                <div style="margin-bottom: 25px">
+                    <h2><i class="fa fa-play"></i>${item_title}</h2>
+                    <p>${item_description}</p>
+                    <hr/>               
+                </div>
+              </tal:define>
+            </tal:repeat>
+
+          <div class="button-wrap has-icon icon-left size-14 pf21 text-center">
+            <!-- pagination-area-start -->
+            <div class="themesflat-pagination clearfix" style="border-top: unset">
+              <div metal:use-macro="context/batch_macros/macros/navigation" />
+            </div>
+            <!-- pagination-area-end -->
+          </div>
+        </tal:listing>
+        
+        <metal:empty metal:define-slot="no_items_in_listing">
+          <p class="discreet"
+              tal:condition="not: view/batch"
+              i18n:translate="">
+            No results were found.
+          </p>
+        </metal:empty>
+
+      </tal:results>
+    </metal:listingmacro>
+  </div><!-- /.col-md-12 -->
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+
