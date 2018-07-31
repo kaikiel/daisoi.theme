@@ -246,13 +246,11 @@
                   <div class="thumb data-effect-item has-effect-icon w40 offset-v-43 offset-h-46">
                     <img class="color-img" src="${item/getURL}/@@images/image/preview" alt="Image">
                     <div class="text-wrap text-center">
+                      <a href="${item/getURL}/view" class="fa fa-search fa-2x colorbox-search"></a>
                       <h5 class="heading"><a>${item/Title}</a></h5>
                       <div class="elm-meta">
                         <span><a style="white-space: pre-line;" tal:content="python: item.getObject().description"></a></span>
                       </div>
-                    </div>
-                    <div class="elm-link">
-                      <a href="#" class="icon-1 icon-search"></a>
                     </div>
                     <div class="overlay-effect bg-color-3"></div>
                   </div>
