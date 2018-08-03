@@ -129,6 +129,39 @@ var RevSlider = function() {
                             drag_block_vertical: false,
                             swipe_direction: "horizontal"
                         },
+                        thumbnails: {
+                     
+                            enable: true,
+                            style: 'zeus',
+                            tmp: `<img src="{{title}}" class="tp-tab-image">`,
+                     
+                            width: 250,
+                            height: 100,
+                            min_width: 100,
+                            visibleAmount: 5,
+                            rtl: false,
+                     
+                            direction: 'horizontal',
+                            position: 'inner',
+                            space: 5,
+                            h_align: 'center',
+                            v_align: 'bottom',
+                            h_offset: 0,
+                            v_offset: 20,
+                     
+                            span: true,
+                            wrapper_padding: 0,
+                            wrapper_color: 'transparent',
+                            wrapper_opacity: '0',
+                     
+                            hide_onleave: false,
+                            hide_onmobile: true,
+                            hide_under: 640,
+                            hide_over: 9999,
+                            hide_delay: 200,
+                            hide_delay_mobile: 1200
+                     
+                        },
                         arrows: {
                             style: "custom",
                             enable: true,

@@ -44,7 +44,9 @@
             </p>
 
             <p class="margin-bottom-15">${python: view.getCompanyInfo()['description']}</p>
-
+            <label style='font-size: 18px;color: white;'>
+              您的IP位置  <input type="text" value='${view/getIP}' style='width: 60%;background: white;color: black;' readonly>
+            </label>
             <ul>
               <li>
                 <div class="inner">
@@ -95,6 +97,7 @@
           </div><!-- /.widget_lastest -->             
         </div><!-- /.col -->
       </tal:repeat>
+      
     </div><!-- /.themesflat-row -->
   </div><!-- /#footer-widgets -->
 </footer><!-- /#footer -->

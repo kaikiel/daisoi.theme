@@ -12,11 +12,13 @@
 
 <!-- SLIDER -->
 <div class="rev_slider_wrapper fullwidthbanner-container">
-  <div id="rev-slider1" class="rev_slider fullwidthabanner">
+  <div id="rev-slider2" class="rev_slider fullwidthabanner">
     <ul>
       <tal:repeat tal:repeat="banner view/getBanner">
       <!-- Slide 2 -->
-      <li data-transition="random">
+      <li data-transition="random"
+      data-param1="Additional Text" 
+          data-title="${banner/getURL}/@@images/image">
         <!-- Main Image -->
         <img src="${banner/getURL}/@@images/image" alt="" data-bgposition="center center" data-no-retina>
          
@@ -61,8 +63,10 @@
           data-mask_out="x:inherit;y:inherit;" 
           data-start="1000" 
           data-splitin="none" 
-          data-splitout="none" 
+          data-splitout="none"
+          
           data-responsive_offset="on">
+
           <a href="${python: banner.getObject().image_caption}" class="themesflat-button bg-accent big"><span>${banner/Title}</span></a>
         </div>
       </li>
