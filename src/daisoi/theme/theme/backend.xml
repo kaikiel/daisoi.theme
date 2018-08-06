@@ -140,7 +140,7 @@
     <drop css:content="#footer" />
     <drop css:content="#bottom" />
     <drop css:content=".row-partner" />
-
+    <drop css:content="#viewlet-above-content-body" />
   </rules>
 
 </rules>
