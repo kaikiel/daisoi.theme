@@ -121,6 +121,7 @@
   <replace css:content="#top-bar" css:theme="#top-bar" />
     <!-- folder-banner -->
   <after  css:content="#folder-banner" css:theme="#site-header-wrap" css:if-not-content=".template-plone_root_view"/>
+
   <after  css:content="#featured-title" css:theme="#site-header-wrap" css:if-not-content=".template-plone_root_view"/>
 
   <replace css:content=".row-partner" css:theme=".row-partner" />

@@ -296,10 +296,6 @@
                         options: {
                             zoom: 15,
                             center: [24.9654143,121.2261115],
-                            mapTypeId: 'Daisoi',
-                            mapTypeControlOptions: {
-                                mapTypeIds: ['Daisoi', google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.HYBRID]
-                            },
                             scrollwheel: true
                         },
                     },
@@ -311,9 +307,6 @@
                 marker: {
                     values: [{
                         address: val.address,
-                        options: {
-                            icon: "++theme++theme/assets/img/map/icon-map.png"
-                        }
 
                         }]
                 },
@@ -519,11 +512,8 @@
     };
 
     var colorbox = function(){
-        $('.icon-1.icon-search').click( function(){
-            $(this).colorbox()
-            debugger
-        });        
-    }
+        $('.colorbox-search').colorbox({scrolling: false});
+    };
  
     // Dom Ready
     $(function() {

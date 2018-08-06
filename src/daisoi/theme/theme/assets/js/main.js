@@ -112,13 +112,22 @@
                         injectSpace = $('<div />', {
                             height: headerHeight
                         }).insertAfter(nav);
-
+                    var nav_menu = $('#menu-primary-menu');
                     $(window).on('load scroll', function(){
                         if ( $(window).scrollTop() > offsetTop ) {
                             nav.addClass('is-fixed');
-                            injectSpace.show();
+                            nav.addClass('is-down');
+                            nav.css({"background-color":"rgba(255, 255, 255, 0.7)",
+                                     "-moz-transition": "all .2s ease-in",
+                                     "-o-transition": "all .2s ease-in",
+                                     "-webkit-transition": "all .2s ease-in",
+                                     "transition": "all .2s ease-in",
+                                    });
+                            injectSpace.hide();
                         } else {
-                            nav.removeClass('is-fixed');
+                            nav.addClass('is-fixed');
+                            nav.removeClass('is-down');
+                            nav.css({"background-color":"rgba(255, 255, 255, 0)"});
                             injectSpace.hide();
                         }
 
