@@ -3,7 +3,7 @@ from plone import api
 abs_url = api.portal.get().absolute_url()
 ?>
 <div id="folder-banner" tal:define="contextImg python: context.getParentNode().image;
-                                    defaultImg python: abs_url + '/resource/folder_banner/default_folder_banner'">
+                                    defaultImg python: abs_url + '/resource/default_image/default_folder_banner'">
     <img src="${defaultImg}" tal:condition="not: contextImg"/>
     <img src="${python: context.getParentNode().absolute_url()}/@@images/image" tal:condition="contextImg"/>
 </div>

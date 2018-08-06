@@ -116,9 +116,9 @@
 
 
   <!--pagination-->
-  <replace css:content-children=".pagination" css:theme-children=".themesflat-pagination.clearfix.no-border.padding-top-17" css:if-content=".template-news_view"/>
+  <replace css:content-children=".pagination" css:theme-children=".themesflat-pagination.clearfix.no-border" css:if-content=".template-news_view"/>
 
-  <replace css:content="#top-bar" css:theme="#top-bar" />
+  <drop css:theme="#top-bar" />
     <!-- folder-banner -->
   <after  css:content="#folder-banner" css:theme="#site-header-wrap" css:if-not-content=".template-plone_root_view"/>
 

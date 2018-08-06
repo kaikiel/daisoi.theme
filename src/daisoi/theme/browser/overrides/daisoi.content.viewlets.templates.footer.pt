@@ -44,9 +44,6 @@
             </p>
 
             <p class="margin-bottom-15">${python: view.getCompanyInfo()['description']}</p>
-            <label style='font-size: 18px;color: white;'>
-              您的IP位置  <input type="text" value='${view/getIP}' style='width: 60%;background: white;color: black;' readonly>
-            </label>
             <ul>
               <li>
                 <div class="inner">
@@ -97,6 +94,10 @@
           </div><!-- /.widget_lastest -->             
         </div><!-- /.col -->
       </tal:repeat>
+        <div class="form-inline widget" style="">
+          <label class="widget-title" for="remote_ip" i18n:translate="">your ip</label>
+          <input type="text" class="form-control" id="remote_ip" value='${view/request/getClientAddr}' readonly>
+        </div><!-- /.col -->
       
     </div><!-- /.themesflat-row -->
   </div><!-- /#footer-widgets -->

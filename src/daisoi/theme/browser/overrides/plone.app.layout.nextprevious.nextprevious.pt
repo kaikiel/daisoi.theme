@@ -5,7 +5,7 @@
                  isViewTemplate view/isViewTemplate|nothing"
      tal:condition="python:enabled and isViewTemplate"
      tal:omit-tag=""
-     i18n:domain="daisol.theme">
+     i18n:domain="daisoi.theme">
 
   <tal:block define="portal_url view/site_url;">
 
@@ -13,7 +13,6 @@
          tal:define="next view/next;
                      previous view/previous"
          tal:condition="python:previous is not None or next is not None">
-
       <ul class="page-prev-next">
 
         <li class="" tal:condition="previous">
@@ -21,6 +20,14 @@
              class="prev"
              i18n:attributes="title title_previous_item"
              tal:attributes="href previous/url">
+            
+            <span  tal:omit-tag="" i18n:translate="">
+              prev
+            </span>
+          </a>
+        </li>
+        <li class="" tal:condition="not: previous">
+          <a class="prev">
             
             <span  tal:omit-tag="" i18n:translate="">
               prev

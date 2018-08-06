@@ -393,7 +393,7 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 .themesflat-row .span_1_of_3 { width: 25%; float: left; }
 .themesflat-row .span_1_of_6 { width: 50%; float: left; }
 .themesflat-row .span_1_of_12 { width: 100%; }
-.themesflat-row .span_5_of_1 { width: 12%; float:left; }
+.themesflat-row .span_5_of_1 { width: 8%; float:left; }
 
 .themesflat-row.separator.drank > [class*="span_"]  { border-left: 1px solid #f2f2f2; }
 .themesflat-row.separator.drank > [class*="span_"]:first-child { border-left: 0px; }

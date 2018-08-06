@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-07-27 01:42+0000\n"
+"POT-Creation-Date: 2018-08-06 01:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: daisoi.theme\n"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:363
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:286
 msgid "12 SERVICES"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:371
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:294
 msgid "12 Services Description"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:120
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:124
 msgid "ABOUT Daisoi"
 msgstr ""
 
@@ -33,13 +33,13 @@ msgstr ""
 msgid "Are you interested in finding out how we can make your project. Please email us."
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:26
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:160
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:27
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:164
 #: ../browser/overrides/plone.app.portlets.portlets.navigation.pt:49
 msgid "Contact Us"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:28
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:29
 msgid "Contact Us Desctiption"
 msgstr ""
 
@@ -51,11 +51,11 @@ msgstr ""
 msgid "HOW CAN WE HELP ?"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:64
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:65
 msgid "Head Office"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:57
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:58
 msgid "INFOMATION"
 msgstr ""
 
@@ -63,20 +63,21 @@ msgstr ""
 msgid "Installs the Plone theme package daisoi.theme."
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:178
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:182
 msgid "Main Service"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:186
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:190
 msgid "Main Service Description"
 msgstr ""
 
 #: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:72
 #: ../browser/overrides/daisoi.content.browser.templates.folder_performance_view.pt:59
+#: ../browser/overrides/daisoi.content.browser.templates.question_listing.pt:53
 msgid "No results were found."
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:312
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:234
 msgid "Performance"
 msgstr ""
 
@@ -84,19 +85,27 @@ msgstr ""
 msgid "Plone Theme: Theme"
 msgstr ""
 
+#: ../browser/overrides/plone.app.layout.viewlets.sections.pt:51
+msgid "Search"
+msgstr ""
+
+#: ../browser/overrides/plone.app.layout.viewlets.sections.pt:52
+msgid "Search..."
+msgstr ""
+
 #: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:57
 msgid "See More"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:83
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:87
 msgid "Smart Factory"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:91
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:95
 msgid "Smart Factory Description"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:461
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:384
 msgid "Solve the problems"
 msgstr ""
 
@@ -111,4 +120,22 @@ msgstr ""
 
 #: ../configure.zcml:36
 msgid "Uninstalls the Plone theme package daisoi.theme."
+msgstr ""
+
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:35
+msgid "next"
+msgstr ""
+
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:24
+msgid "prev"
+msgstr ""
+
+#. Default: "Go to next item"
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:31
+msgid "title_next_item"
+msgstr ""
+
+#. Default: "Go to previous item"
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:19
+msgid "title_previous_item"
 msgstr ""
