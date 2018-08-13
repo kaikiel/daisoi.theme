@@ -132,12 +132,12 @@ var RevSlider = function() {
                         thumbnails: {
                      
                             enable: true,
-                            style: 'zeus',
-                            tmp: `<img src="{{title}}" class="tp-tab-image">`,
-                     
-                            width: 250,
-                            height: 100,
-                            min_width: 100,
+                            style: 'hades',
+                            tmp: '<span class=""><img src="{{title}}" class="tp-thumb-img-wrap"></span>',
+                    
+                            width: 50,
+                            height: 50,
+                            min_width: 50,
                             visibleAmount: 5,
                             rtl: false,
                      

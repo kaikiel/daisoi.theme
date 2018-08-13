@@ -28,12 +28,11 @@
           data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
           data-y="['middle','middle','middle','middle']" data-voffset="['${python: -134 + repeat.text.index*60}',
                                                                         '${python: -134 + repeat.text.index*60}',
-                                                                        '${python: -134 + repeat.text.index*60}',
-                                                                        '${python: -134 + repeat.text.index*60}']"
+                                                                        '${python: -100 + repeat.text.index*60}',
+                                                                        '${python: -60 + repeat.text.index*60}']"
           data-fontsize="['${python: 52 - 32*repeat.text.start}','${python: 52 - 32*repeat.text.start}',
                           '${python: 42 - 22*repeat.text.start}','${python: 32 - 16*repeat.text.start}']"
-          data-lineheight="['${python: 65 - -5*repeat.text.start}','${python: 65 - -5*repeat.text.start}',
-                            '${python: 45 - 5*repeat.text.start}' ,'${python: 35 - 11*repeat.text.start}']"
+          data-lineheight="['65','65','45','35']"
           data-width="full"
           data-height="none"
           data-whitespace="normal"
@@ -103,8 +102,13 @@
       <div class="col-md-4">
         <div class="themesflat-content-box clearfix" data-margin="0 5px 0 5px" data-mobilemargin="0 0 0 0">
           <div class="themesflat-icon-box icon-top align-center has-width w95 circle light-bg accent-color style-1 clearfix">
-            <div class="icon-wrap">
-              <i class="autora-icon-quality"></i>
+            <div class="icon-wrap" tal:define="obj item/getObject">
+              <i class="service-icon" tal:condition="obj/hoverImg">
+                <img src="${item/getURL}/@@images/image/preview" data-img1="${item/getURL}/@@images/image/preview" data-img2="${item/getURL}/@@images/hoverImg/preview" />
+              </i>
+              <i class="service-icon" tal:condition="not: obj/hoverImg">
+                <img src="${item/getURL}/@@images/image/preview" data-img1="${item/getURL}/@@images/image/preview" data-img2="${item/getURL}/@@images/image/preview" />
+              </i>
             </div>
             <div class="text-wrap">
               <h5 class="heading"><a>${item/Title}</a></h5>
@@ -144,21 +148,9 @@
           <div class="themesflat-headings style-1 clearfix">
             <h2 class="heading">${item/Title}</h2>
             <div class="sep has-width w80 accent-bg margin-top-11 clearfix"></div>                         
-            <p class="sub-heading margin-top-30" tal:content="structure python: item.getObject().text.raw"></p>
+            <p style="white-space: pre-line;" class="sub-heading margin-top-30" tal:content="structure python: item.getObject().description"></p>
           </div>
           <div class="themesflat-spacer clearfix" data-desktop="26" data-mobile="35" data-smobile="35"></div>
-          <div class="content-list">
-            <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
-              <div class="themesflat-list has-icon style-1 icon-left clearfix">
-                <div class="inner">
-                  <span class="item">
-                    <span class="icon"><i class="fa fa-check-square"></i></span>
-                    <span class="text">${text}</span>
-                  </span>
-                </div>
-              </div><!-- /.themeslat-list -->
-            </tal:repeat>
-          </div><!-- /.content-list -->
           <div class="themesflat-spacer clearfix" data-desktop="42" data-mobile="35" data-smobile="35"></div>
           <div class="elm-button">
             <a href="${portal_url}/contact-us"  class="themesflat-button bg-white" i18n:translate="">Contact Us</a>
@@ -171,58 +163,6 @@
   </div><!-- /.container-fluid -->
 </div>
 <!-- END ABOUT -->
-
-<!-- SERVICES -->
-<div class="row-services">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="themesflat-spacer clearfix" data-desktop="60" data-mobile="60" data-smobile="60"></div>
-        <div class="themesflat-headings style-1 text-center clearfix">
-          <h2 class="heading" i18n:translate="">Main Service</h2>
-          <div class="sep has-icon width-125 clearfix">
-            <div class="sep-icon">
-              <span class="sep-icon-before sep-center sep-solid"></span>
-              <span class="icon-wrap"><i class="autora-icon-build"></i></span>
-              <span class="sep-icon-after sep-center sep-solid"></span>
-            </div>
-          </div>
-          <p class="sub-heading" i18n:translate="">Main Service Description</p>
-        </div>
-        <div class="themesflat-spacer clearfix" data-desktop="39" data-mobile="35" data-smobile="35"></div>
-        <div class="themesflat-carousel-box data-effect clearfix" data-gap="30" data-column="3" data-column2="2" data-column3="1" data-auto="false">
-          <div class="owl-carousel owl-theme">
-            <tal:repeat tal:repeat="item view/getService">
-            <div class="themesflat-image-box style-1 has-icon icon-right w65 clearfix">
-              <div class="image-box-item">
-                <div class="inner">
-                  <div class="thumb data-effect-item" tal:switch="python: hasattr(item, 'image')">
-                    <img tal:case="True" src="${item/getURL}/@@images/image" alt="Image">
-                    <img tal:case="False" src="++theme++theme/assets/img/news/post-1-65x65.jpg" alt="Image">
-                    <div class="overlay-effect bg-color-accent"></div>
-                  </div>
-                  <div class="text-wrap">
-                    <h5 class="heading"><a href="${item/getURL}">${item/Title}</a></h5>
-                    <span class="icon-wrap">
-                      <i class="fa fa-angle-right"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- /.themesflat-image-box -->
-            </tal:repeat>
-          </div>
-        </div><!-- /.themesflat-carousel-box -->
-        <div class="themesflat-spacer clearfix" data-desktop="50" data-mobile="35" data-smobile="35"></div>
-        <div class="elm-button text-center">
-          <a href="${portal_url}/contact_us" class="themesflat-button bg-accent" i18n:translate>Contact Us</a>
-        </div>
-        <div class="themesflat-spacer clearfix" data-desktop="73" data-mobile="60" data-smobile="60"></div>
-      </div><!-- /.col-md-12 -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</div>
-<!-- END SERVICES -->
 
 <!-- PROJECT -->
 <div class="row-project parallax parallax-1 parallax-overlay">                
@@ -247,16 +187,18 @@
             <div class="themesflat-project style-1 data-effect clearfix">
               <div class="project-item">
                 <div class="inner">
-                  <div class="thumb data-effect-item has-effect-icon w40 offset-v-43 offset-h-46">
+                  <div class="thumb data-effect-item has-effect-icon w40 offset-v-43 offset-h-20">
                     <img class="color-img" src="${item/getURL}/@@images/image/preview" alt="Image">
                     <div class="text-wrap text-center">
-                      <a href="${item/getURL}/view" class="fa fa-search fa-2x colorbox-search"></a>
                       <h5 class="heading"><a>${item/Title}</a></h5>
                       <div class="elm-meta">
-                        <span><a style="white-space: pre-line;" tal:content="python: item.getObject().description"></a></span>
+                        <span><a class="two-line" tal:content="python: item.getObject().description"></a></span>
                       </div>
                     </div>
                     <div class="overlay-effect bg-color-3"></div>
+                    <div class="elm-link">
+                        <a data-fancybox data-type="iframe" data-src="${item/getURL}/view" href="javascript:;" class="icon-1 icon-search"></a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -304,8 +246,13 @@
           <tal:condition tal:condition="is_first_item" tal:content='structure string:<div class="col span_1_of_4">'/>
 
             <div class="themesflat-icon-box icon-left accent-color style-2 clearfix">
-              <div class="icon-wrap">
-                <i class="autora-icon-build"></i>
+              <div class="icon-wrap" tal:define="obj item/getObject;">
+                <i class="service-icon" tal:condition="obj/hoverImg">
+                  <img src="${item/getURL}/@@images/image/preview" data-img1="${item/getURL}/@@images/image/preview" data-img2="${item/getURL}/@@images/hoverImg/preview" />
+                </i>
+                <i class="service-icon" tal:condition="not: obj/hoverImg">
+                  <img src="${item/getURL}/@@images/image/preview" data-img1="${item/getURL}/@@images/image/preview" data-img2="${item/getURL}/@@images/image/preview" />
+                </i>
               </div>
               <div class="text-wrap">
                 <h5 class="heading"><a>${item/Title}</a></h5>
@@ -337,39 +284,6 @@
   </div><!-- /.container -->
 </div>
 <!-- END ICONBOX -->
-
-<!-- TESTIMONIALS -->
-<div class="row-testimonials parallax-2" style="background: #1d2d34;"> 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="themesflat-spacer clearfix" data-desktop="80" data-mobile="60" data-smobile="60"></div>
-        <div class="themesflat-carousel-box has-arrows arrow-center arrow-circle offset-v-24 clearfix" data-gap="30" data-column="1" data-column2="1" data-column3="1" data-auto="true">
-          <div class="owl-carousel owl-theme">
-            <tal:repeat tal:repeat="item view/getTestimonials">
-            <div class="themesflat-testimonials style-1 max-width-70 align-center has-width w100 circle border-solid clearfix">
-              <div class="testimonial-item">
-                <div class="inner">
-                  <div class="icon-wrap">
-                     <i class="fa fa-quote-left"></i>
-                  </div>
-                  <blockquote class="text">
-                    <p style="white-space: pre-line;">${python: item.getObject().description}</p>
-                    <div class="sep has-width w80 accent-bg clearfix"></div>
-                    <h6 class="name">${item/Title}</h6>
-                  </blockquote>
-                </div>
-              </div>
-            </div><!-- /.themesflat-testimonials -->
-            </tal:repeat> 
-          </div>
-        </div><!-- /.themesflat-carousel-box -->
-        <div class="themesflat-spacer clearfix" data-desktop="68" data-mobile="60" data-smobile="60"></div>
-      </div><!-- /.col-md-12 -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</div>
-<!-- END TESTIMONIALS -->
 
 <!-- QUOTE -->
 <div class="row-quote bg-row-1" >

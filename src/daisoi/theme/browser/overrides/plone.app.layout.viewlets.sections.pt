@@ -1,3 +1,14 @@
+<div id="site-logo" class="clearfix">
+  <div id="site-log-inner">
+    <a href="${view/context/portal_url}" rel="home" class="main-logo">
+      <img src="${view/context/portal_url}/resource/website_image/logo-white" alt="Daisoi" width="139" height="52" 
+           data-img1="${view/context/portal_url}/resource/website_image/logo-white" 
+           data-img2="${view/context/portal_url}/resource/website_image/logo-colorful" data-width="139" data-height="52">
+    </a>
+  </div>
+</div><!-- /#site-logo -->
+
+
 <tal:sections
      xmlns:tal="http://xml.zope.org/namespaces/tal"
      xmlns:metal="http://xml.zope.org/namespaces/metal"
@@ -41,15 +52,3 @@
   </nav>
 
 </tal:sections>
-
-<div id="header-search" i18n:domain="daisoi.theme">
-  <a href="#" class="header-search-icon">
-    <span class="search-icon fa fa-search">
-    </span>
-  </a>
-  <form role="search" method="get" class="header-search-form" action="news">
-    <label class="screen-reader-text" i18n:translate="">Search</label>
-    <input type="text" value="" name="searchableText" class="header-search-field" placeholder="Search..." i18n:attributes="placeholder">
-    <button type="submit" class="header-search-submit" title="Search" i18n:attributes="title" i18n:translate="">Search</button>
-  </form>
-</div><!-- /#header-search -->

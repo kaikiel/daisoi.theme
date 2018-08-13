@@ -1,8 +1,10 @@
 <head>
   <link rel="stylesheet" type="text/css" href="++theme++theme/style.css">
 </head>
-<div style="margin:5px; display: inline-block;">
-<img style="max-width: 80vw;" src="${view/context/absolute_url}/@@images/image/preview">
+<body style="background:black; margin:10pt;">
+<div>
+<img style="max-width: 100%;" src="${view/context/absolute_url}/@@images/image/preview">
 <p class="item-title">${view/context/title}</p>
 <p class="item-content" style="white-space: pre-line;">${view/context/description}</p>
 </div>
+</body>

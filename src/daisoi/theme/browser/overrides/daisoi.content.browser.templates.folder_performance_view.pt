@@ -14,12 +14,12 @@
     <ul class="themesflat-filter style-1 clearfix">
       <li id="sAll" onclick="toSubject('')"><a href="#" >All</a></li>
       <tal:repeat tal:repeat="sub view/getImgSubject">
-        <li id="s${sub}"><a href="" onclick="toSubject('${sub}')" >${sub}</a></li>
+        <li id="s${python: ''.join(str(ord(c)) for c in sub.decode('utf8'))}"><a href="" onclick="toSubject('${sub}')" >${sub}</a></li>
       </tal:repeat>
     </ul>
 
     <metal:listingmacro define-macro="listing">
-      <tal:results define="batch view/batch;">
+      <tal:results define="batch view/results;">
         <tal:listing condition="batch">
           <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="35" data-smobile="35"></div>
           <div class="themesflat-project style-2 isotope-project has-margin mg15 data-effect clearfix">
@@ -29,16 +29,19 @@
                                       item_description obj/description;
                                       item_url item/getURL;
                                       item_subject item/Subject;">
-                <div class="project-item" >
+                <div class="project-item ">
                   <div class="inner">
-                    <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                      <img src="${item_url}/@@images/image" alt="Image">
-                      <div class="overlay-effect bg-color-accent"></div>
+                    <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-20">
+                      <img class="lazyload" data-src="${item_url}/@@images/image" alt="Image">
+                      <div class="elm-link">
+                        <a data-fancybox data-type="iframe" data-src="${item/getURL}/view" href="javascript:;" class="icon-1 icon-search"></a>
+                      </div>
+                      <div class="overlay-effect bg-color-3"></div>
                     </div>
                     <div class="text-wrap">
                       <h5 class="heading"><a>${item_title}</a></h5>
                       <div class="elm-meta">
-                        <p style="white-space: pre-line;">${item_description}</p>
+                        <p class="two-line" >${item_description}</p>
                       </div>
                     </div>
                   </div>
@@ -47,17 +50,14 @@
             </tal:repeat>
           </div><!-- /.themesflat-project -->
           <div class="button-wrap has-icon icon-left size-14 pf21 text-center">
-            <!-- pagination-area-start -->
-            <div class="themesflat-pagination clearfix">
-              <div metal:use-macro="context/batch_macros/macros/navigation" />
-            </div>
-            <!-- pagination-area-end -->
+            <a class="themesflat-button bg-accent pd32" id="loadMore">
+              <span>LOAD MORE <span class="icon"><i class="ion-load-c"></i></span></span>
+            </a>
           </div>
-
         </tal:listing>
         <metal:empty metal:define-slot="no_items_in_listing">
           <p class="discreet"
-              tal:condition="not: view/batch"
+              tal:condition="not: view/results"
               i18n:translate="">
             No results were found.
           </p>
@@ -69,10 +69,13 @@
   <script>
     document.onreadystatechange = function subColor() {
         var url = new URL(location.href);
-        _category = url.searchParams.get("p_category");
         img_subject  = url.searchParams.get("img_subject");
-        if(img_subject != null && img_subject != ""){
-            img_subject = img_subject.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '');
+        if(img_subject){
+            var temp = "";
+            for(var i=0; i<img_subject.length; i++){
+              temp+=img_subject.charCodeAt(i);
+            }
+            img_subject = temp;
             $("#s"+img_subject).addClass("active");
         }else{
             $("#sAll").addClass("active");

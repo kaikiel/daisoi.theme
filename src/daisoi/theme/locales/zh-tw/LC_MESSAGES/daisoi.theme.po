@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-08-06 01:57+0000\n"
+"POT-Creation-Date: 2018-08-06 05:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "聯絡我們"
 msgid "Contact Us Desctiption"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:17
+#: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:19
 msgid "Follow us:"
 msgstr "跟著我們:"
 
@@ -82,14 +82,6 @@ msgstr "應用實績"
 msgid "Plone Theme: Theme"
 msgstr ""
 
-#: ../browser/overrides/plone.app.layout.viewlets.sections.pt:51
-msgid "Search"
-msgstr ""
-
-#: ../browser/overrides/plone.app.layout.viewlets.sections.pt:52
-msgid "Search..."
-msgstr ""
-
 #: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:57
 msgid "See More"
 msgstr "查看更多"
@@ -100,7 +92,7 @@ msgstr "更聰明的智慧工廠"
 
 #: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:95
 msgid "Smart Factory Description"
-msgstr ""
+msgstr "3個步驟,提升工廠營運效率"
 
 #: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:384
 msgid "Solve the problems"
@@ -119,7 +111,7 @@ msgstr ""
 msgid "Uninstalls the Plone theme package daisoi.theme."
 msgstr ""
 
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:35
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:43
 msgid "next"
 msgstr "下一篇"
 
@@ -128,7 +120,7 @@ msgid "prev"
 msgstr "前一篇"
 
 #. Default: "Go to next item"
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:31
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:39
 msgid "title_next_item"
 msgstr "前往下一篇"
 
@@ -136,3 +128,7 @@ msgstr "前往下一篇"
 #: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:19
 msgid "title_previous_item"
 msgstr "前往上一篇"
+
+#: ../browser/overrides/daisoi.content.viewlets.templates.footer.pt:107
+msgid "your ip"
+msgstr "您的IP位置:"

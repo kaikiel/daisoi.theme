@@ -1,0 +1,140 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="daisoi.theme">
+<body>
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+          tal:define="toc context/table_of_contents|nothing;">
+
+<style>
+td{
+  vertical-align: middle;
+  margin: 20pt;
+}
+
+.video-title:first-letter{
+  font-size: 1.2em;
+  color: #ed6d00 
+}
+
+.problem-table{
+  border:0; 
+}
+
+.problem-table td{
+  vertical-align: top;
+}
+
+.problem-table tr th{
+  border-width: 0 0 1px 0;
+  border-bottom-color: #ed964f;
+  font-weight: bold;
+  text-align: center;
+  background: #efeff0;
+}
+
+.problem-table tr th:first-child{
+  border-top-left-radius: 10px;
+}
+
+.problem-table tr th:last-child{
+  border-top-right-radius: 10px;
+}
+
+.problem-table tr:nth-child(2) td{
+  border: solid;
+  border-width: 0 1px 1px 0;
+  border-bottom-color: #aeb1c9;
+  border-right-color: #fadbbe;
+}
+
+.problem-table tr:nth-child(3) td{
+  border: solid;
+  border-width: 0 1px 0 0;
+  border-right-color: #fadbbe;
+}
+
+.problem-table tr td:last-child{
+  border-right-color: transparent;
+}
+
+.problem-table tr td ul li:before{
+  content: "\f111";
+  font-family: FontAwesome;
+}
+
+.problem-table tr:nth-child(2) td ul li:before{
+  color: #e6260f;
+}
+
+.problem-table tr:nth-child(3) td ul li:before{
+  color: #116eb7;
+}
+
+</style>
+
+<div class="row" tal:define="item view/getTopText">
+  <div class="col-12 col-lg-8">
+    <p style="white-space: pre-line; font-weight: bold; font-size:12pt">${python: item.getObject().description_header}</p>
+    <p style="white-space: pre-line;">${python: item.getObject().description_text}</p>
+  </div>
+  <div class="col-4 d-none d-lg-block">
+    <img src="${item/getURL}/@@images/description_img">
+  </div>
+</div>
+
+<div class="row">
+  <tal:repeat tal:repeat="item view/getVideoDescription">
+      <div class="col-xl-5">
+        <div style="background-image:url('${item/getURL}/@@images/image'); background-repeat:no-repeat">
+          <h2 class="video-title" style="margin-left: 60pt">${item/Title}</h2> 
+        </div>
+        <div style="margin-left: 65pt">
+          <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
+            <div class="inner">
+              <span class="item">
+                <span class="icon"><i style="color:#1666b0;" class="fa fa-circle"></i></span>
+                <span class="text">${text}</span>
+              </span>
+            </div>
+          </tal:repeat>
+        </div>
+      </div>
+      <div class="col-xl-7">
+        <div class="youtube-bg">
+        <iframe class="youtube" width="60%" height="75%" src="${python: item.getObject().url.replace('watch?v=', 'embed/')}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+  </tal:repeat>
+</div>
+
+<table class="problem-table">
+  <tr>
+    <th>人員</th>
+    <th>機器</th>
+    <th>物料</th>
+    <th>方法</th>
+    <th>環控</th>
+  </tr>
+  <tal:repeat tal:repeat="item view/getProblemTable">
+    <tal:condition tal:condition="python: repeat.item.number%5 == 1" tal:content="structure string: <tr>">
+      <td>
+        <ul>
+          <tal:repeat  tal:repeat="text python: item.split('\r\n')">
+            <li>${text}</li>
+          </tal:repeat>
+        </ul>
+      </td>
+    <tal:condition tal:condition="python: repeat.item.number%5 == 0" tal:content="structure string: </tr>">
+  </tal:repeat>
+</table>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

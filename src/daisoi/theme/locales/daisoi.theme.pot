@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-08-06 01:57+0000\n"
+"POT-Creation-Date: 2018-08-06 05:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Contact Us Desctiption"
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:17
+#: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:19
 msgid "Follow us:"
 msgstr ""
 
@@ -85,14 +85,6 @@ msgstr ""
 msgid "Plone Theme: Theme"
 msgstr ""
 
-#: ../browser/overrides/plone.app.layout.viewlets.sections.pt:51
-msgid "Search"
-msgstr ""
-
-#: ../browser/overrides/plone.app.layout.viewlets.sections.pt:52
-msgid "Search..."
-msgstr ""
-
 #: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:57
 msgid "See More"
 msgstr ""
@@ -122,7 +114,7 @@ msgstr ""
 msgid "Uninstalls the Plone theme package daisoi.theme."
 msgstr ""
 
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:35
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:43
 msgid "next"
 msgstr ""
 
@@ -131,11 +123,15 @@ msgid "prev"
 msgstr ""
 
 #. Default: "Go to next item"
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:31
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:39
 msgid "title_next_item"
 msgstr ""
 
 #. Default: "Go to previous item"
 #: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:19
 msgid "title_previous_item"
+msgstr ""
+
+#: ../browser/overrides/daisoi.content.viewlets.templates.footer.pt:107
+msgid "your ip"
 msgstr ""

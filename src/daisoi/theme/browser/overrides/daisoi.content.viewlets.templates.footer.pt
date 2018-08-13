@@ -1,5 +1,13 @@
 <html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="daisoi.theme">
+
+<div id="header-search">
+  <a href="${python: view.getCompanyInfo()['youtube_link']}" target='_blank' class="header-youtube-icon">
+    <span><i class="youtube-icon fa fa-youtube-play"></i>
+    </span>
+  </a>
+</div><!-- /#header-youtube -->
+
 <!-- PARTNER -->
 <div class="row-partner">
   <div class="container">
@@ -40,7 +48,7 @@
         <div class="widget widget_text">
           <div class="textwidget">
             <p class="footer-logo">
-              <a href="${view/context/portal_url}"><img src="${view/getSiteLogo}" alt="Image" width="170" height="34"></a>
+              <a href="${view/context/portal_url}"><img src="${view/context/portal_url}/resource/website_image/logo-white" alt="Image" width="139" height="52"></a>
             </p>
 
             <p class="margin-bottom-15">${python: view.getCompanyInfo()['description']}</p>
@@ -94,11 +102,12 @@
           </div><!-- /.widget_lastest -->             
         </div><!-- /.col -->
       </tal:repeat>
-        <div class="form-inline widget" style="">
-          <label class="widget-title" for="remote_ip" i18n:translate="">your ip</label>
-          <input type="text" class="form-control" id="remote_ip" value='${view/request/getClientAddr}' readonly>
+      <form class="span_5_of_1 form-inline">
+        <div class="form-group row widget" style="">
+          <label class="col-sm-5 col-form-label widget-title" for="remote_ip" i18n:translate="">your ip</label>
+          <input type="text" class="col-sm-5" id="remote_ip" value='${view/request/getClientAddr}' readonly style="padding:0 0 0 2pt; background:white;">
         </div><!-- /.col -->
-      
+      </form>
     </div><!-- /.themesflat-row -->
   </div><!-- /#footer-widgets -->
 </footer><!-- /#footer -->

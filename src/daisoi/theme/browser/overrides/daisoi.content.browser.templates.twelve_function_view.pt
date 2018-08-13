@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="daisoi.theme">
+<body>
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+          tal:define="toc context/table_of_contents|nothing;">
+  <table style="border:0;">
+    <tr>
+      <td style="padding:0;">
+        <h3 class="align-middle">12大功能優勢</h3>
+      </td>
+      <td>
+        <img src="++theme++theme/assets/img/circle.png">
+      </td>
+    </tr>
+  </table>
+  
+  <div class="row">
+  <tal:repeat tal:repeat="item view/get12Function">
+    <div class="col-md-6 col-sm-12" style="margin-bottom: 15px">
+      <div>
+        <img src="${item/getURL}/@@images/image">
+      </div>
+      <div style="margin-left: 40pt">
+        <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
+          <div class="inner">
+            <span class="item">
+              <span class="icon"><i style="color:#1666b0;" class="fa fa-circle"></i></span>
+              <span class="text">${text}</span>
+            </span>
+          </div>
+        </tal:repeat>
+      </div>
+    </div>
+  </tal:repeat>
+  </div>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

@@ -1,5 +1,7 @@
 <html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="daisoi.theme">
+
+
 <!-- Top Bar -->    
 <div id="top-bar" tal:define="item view/getCompanyInfo">
   <div id="top-bar-inner" class="container">

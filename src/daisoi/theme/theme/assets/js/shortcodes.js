@@ -468,7 +468,7 @@
                 $container.isotope({
                     itemSelector: '.project-item',
                     transitionDuration: '1s',
-                    layoutMode: 'fitRows'
+                    layoutMode: 'fitRows',
                 });
             });
 
@@ -511,10 +511,67 @@
         activePattern();
     };
 
-    var colorbox = function(){
-        $('.colorbox-search').colorbox({scrolling: false});
+    var fancybox = function(){
+      $("[data-fancybox]").fancybox({
+        iframe : {
+          css : {
+            width : 'fit-content',
+            backgroundColor: "black",
+          },
+          // Iframe tag attributes
+          attr: {
+            scrolling: "no"
+          }
+        },
+      });
+    };
+        
+    var hoverImg = function(){
+        if($('.themesflat-icon-box')){
+            $('.themesflat-icon-box').hover(function () {
+                $(this).find('img').attr('src', $(this).find('img').data('img2'))
+            }, function () {
+                $(this).find('img').attr('src', $(this).find('img').data('img1'))
+            })
+        }
     };
  
+    var showlatter = function(){
+       var $container = $('.isotope-project'); 
+       var initShow = 6; //number of items loaded on init & onclick load more button
+       var counter = initShow;
+       if ( $('.isotope-project').length > 0 ) {
+           loadMore(initShow)
+           $("#loadMore").on('click', function (e) {
+             counter = counter + initShow;
+             loadMore(counter);
+           });
+           $("img.lazyload").lazyload();
+           $("img.lazyload").load(function () {
+             $container.isotope('layout');
+           });
+       }
+    };
+
+    var loadMore = function (toShow) {
+       var $container = $('.isotope-project'); 
+       var iso = $container.data('isotope'); // get Isotope instance
+       $container.find(".hidden").removeClass("hidden");
+       var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
+         return item.element;
+       });
+       $(hiddenElems).addClass('hidden');
+       $container.isotope('layout');
+
+       //when no more to load, hide show more button
+       if (hiddenElems.length == 0) {
+         jQuery("#loadMore").hide();
+       } else {
+         jQuery("#loadMore").show();
+       }
+
+    };
+    
     // Dom Ready
     $(function() {
         flatSpacer();
@@ -529,11 +586,13 @@
         flatCounter();
         flatIsotope();
         swClick();
-        colorbox();
+        fancybox();
+        hoverImg();
         $( window ).load(function() {
             flatOwl();
             Parallax();
             inViewport();
+            showlatter();
         });
     });
 

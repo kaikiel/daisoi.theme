@@ -1,3 +1,9 @@
+<style>
+.portaltype-plone-site #featured-title{
+  border-top: 117px solid;
+}
+
+</style>
 <div id="featured-title" class="featured-title clearfix">
   <div id="featured-title-inner" class="container clearfix">
     <div class="featured-title-inner-wrap">                 

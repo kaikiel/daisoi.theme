@@ -14,7 +14,7 @@
   <div id="inner-content" class="inner-content-wrap">
     <article class="hentry data-effect">
       <div class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24 clerafix">
-        <a href="page-blog-single.html"><img src="${view/context/absolute_url}/@@images/image" alt="Image"></a>
+        <a href="${view/context/absolute_url}"><img src="${view/context/absolute_url}/@@images/image" alt="Image"></a>
         <div class="post-calendar">                  
           <span class="inner">
             <span class="entry-calendar">
@@ -42,17 +42,17 @@
           </div>
         </div><!-- /.post-meta -->
         <div class="post-content post-excerpt margin-bottom-43">
-          <p class="line-height-27 letter-spacing-005" tal:content="structure view/context/text/raw"></p>
+          <p class="line-height-27 letter-spacing-005" tal:condition="view/context/text" tal:content="structure view/context/text/raw"></p>
         </div><!-- /.post-excerpt -->
-        <div class="post-tags-socials clearfix">
-          <div class="post-tags ">
+        <div class="post-tags-socials">
+          <div class="post-tags" tal:condition="view/context/Subject">
             <span>Tags :</span>
             <tal:repeat tal:repeat="sub view/context/Subject">
               <a href="${python: view.getNewsSubject()[sub]['getURL']}">${sub}</a>
             </tal:repeat>
           </div>
           <div class="post-socials ">
-            <a href="#" class="facebook"><span class="fa fa-facebook-square"></span></a>
+            <div class="fb-like" data-href="${view/context/absolute_url}" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
           </div>
         </div>
         
@@ -61,6 +61,15 @@
 
   </div><!-- /#inner-content -->
 </div><!-- /#site-content -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 </metal:content-core>
 </metal:content-core>

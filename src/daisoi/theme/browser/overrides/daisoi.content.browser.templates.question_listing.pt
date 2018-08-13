@@ -11,14 +11,38 @@
           tal:define="toc context/table_of_contents|nothing;">
 
 <style>
-.fa-play{
-    background: #f09e08;
-    border-radius: 5px;
-    color: white;
-    padding: 5px 5px 5px 8px;
-    vertical-align: middle;
-    font-size: 14px;
-    margin-right: 5px;
+.question-list > ol{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.question-list > ol > li{
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.question-list > ol > li:before{
+  content: "\f04b"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  color: white;
+  background: #ec6c00;
+  border-radius: 20%;
+  padding: 5px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.question-list p{
+  margin: 0;
+}
+
+.question-content li{
+  list-style: unset;
+  padding: unset;
+}
+
+.question-content {
+    margin-bottom: 10px;
 }
 </style>
   <div class="col-md-12">
@@ -26,20 +50,24 @@
     <metal:listingmacro define-macro="listing">
       <tal:results define="batch view/batch;">
         <tal:listing condition="batch">
-            <tal:repeat tal:repeat="item batch">
-              <tal:define tal:define="obj item/getObject;
-                                      item_title item/Title;
-                                      item_description obj/description;
-                                      item_url item/getURL;
-                                      item_subject item/Subject;">
-                <div style="margin-bottom: 25px">
-                    <h2><i class="fa fa-play"></i>${item_title}</h2>
-                    <p>${item_description}</p>
-                    <hr/>               
-                </div>
-              </tal:define>
-            </tal:repeat>
-
+          <div class="question-list">
+            <ol>
+              <tal:repeat tal:repeat="item batch">
+                <tal:define tal:define="obj item/getObject;
+                                        item_title item/Title;
+                                        item_text obj/text;
+                                        item_url item/getURL;
+                                        item_subject item/Subject;">
+                  <li >
+                      Q${python: repeat.item.number+view.b_start}. ${item_title}
+                  </li>
+                  <div class="question-content">
+                    <tal:content tal:condition="item_text" tal:content="structure item_text/raw"></tal:content>
+                  </div>
+                </tal:define>
+              </tal:repeat>
+            </ol>
+          </div>
           <div class="button-wrap has-icon icon-left size-14 pf21 text-center">
             <!-- pagination-area-start -->
             <div class="themesflat-pagination clearfix" style="border-top: unset">

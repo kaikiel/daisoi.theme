@@ -106,7 +106,7 @@
   <drop css:content="#edit-zone" />
 
   <!--logo -->
-  <replace css:content="#portal-logo" css:theme-children="#site-log-inner"/>
+  <replace css:content="#site-logo" css:theme-children="#site-log-inner"/>
 
   <!--nav bar and footer -->
   <replace css:content-children=".plone-collapse.plone-navbar-collapse" css:theme-children="#main-nav" />
@@ -116,7 +116,22 @@
 
 
   <!--pagination-->
-  <replace css:content-children=".pagination" css:theme-children=".themesflat-pagination.clearfix.no-border" css:if-content=".template-news_view"/>
+  <replace css:theme="#themesflat-pagination">
+
+    <xsl:variable name="central">
+      <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-12 col-sm-6 offset-sm-3 themesflat-pagination clearfix no-border</xsl:if>
+      <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-12 col-sm-9 themesflat-pagination clearfix no-border</xsl:if>
+      <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-9 offset-sm-3 themesflat-pagination clearfix no-border</xsl:if>
+      <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12 themesflat-pagination clearfix no-border</xsl:if>
+    </xsl:variable>
+
+    <div class="{$central}">
+      <xsl:if test="not(contains(/html/body/@class, 'template-plone_root_view'))">
+        <xsl:apply-templates css:select=".nextprev"  />
+      </xsl:if>
+    </div>
+
+  </replace>
 
   <drop css:theme="#top-bar" />
     <!-- folder-banner -->
@@ -124,7 +139,9 @@
 
   <after  css:content="#featured-title" css:theme="#site-header-wrap" css:if-not-content=".template-plone_root_view"/>
 
-  <replace css:content=".row-partner" css:theme=".row-partner" />
+  <drop css:theme=".row-partner" />
+  <drop css:theme=".col-sm-9.col-xs-12.themesflat-pagination.clearfix.no-border" css:if-content=".template-plone_root_view" />
+  <drop css:theme=".page-content .container" css:if-content=".template-plone_root_view" />
    
 </rules>
 </rules>

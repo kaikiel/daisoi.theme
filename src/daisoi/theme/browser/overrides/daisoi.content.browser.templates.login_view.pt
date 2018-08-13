@@ -21,7 +21,6 @@
     margin-right: 5px;
 }
 input[type="text"],input[type="password"]{
-    width: 350px;
     border: 1px solid #ccc;
     height: 40px;
 }
@@ -66,35 +65,67 @@ input[type="text"],input[type="password"]{
     font-size: 17px;
 }
 </style>
-    <div style='position: relative'>
-        <img src="++plone++daisoi.theme/login_img.png"/>
-        <br/>
-        <div style='margin-left: 32px'>
-            <i class="fa fa-play"></i>
-            <span>帳號</span>
-            <input type="text" />
+    <div class="col-sm-8 col-lg-6">
+        <div style="background-image: url('++theme++theme/assets/img/member_bg.png'); background-repeat: no-repeat; padding-bottom: 1px;">
+          <h1>會員登入</h1>
         </div>
-        <div style='margin-left: 32px'>
-            <i class="fa fa-play"></i>
-            <span>密碼</span>
-            <input type="password" />
+        <div class="form-group row">
+          <label for="user-input" class="col-4 col-sm-3 col-form-label"><i class="fa fa-play"></i><span>帳號</span></label>
+          <div class="col-8 col-sm-9">
+            <input class="form-control" type="text" id="user-input">
+          </div>
         </div>
-        <button style='position: absolute;left: 360px' onclick="login()">登入</button>
+        <div class="form-group row">
+          <label for="pw-input" class="col-4 col-sm-3 col-form-label"><i class="fa fa-play"></i><span>密碼</span></label>
+          <div class="col-8 col-sm-9">
+            <input class="form-control" type="text" id="pw-input">
+          </div>
+        </div>
+        <div style='text-align:right;'>
+        <button onclick="login()">登入</button>
+        </div>
+        <div style="margin-top: 15px;">
+          <ul>
+            <li>
+              <div class="inner">
+                <p>若您忘記帳號密碼請聯繫大碩課服人員</p>
+              </div>
+            </li>
+
+            <li>
+              <div class="inner" style="font-size:15px; color:black;">
+                <span style="color:#ec6c00;" class="fa fa-envelope"></span>
+                <span class="text" tal:repeat="email python: view.getCompanyInfo()['email'].split('\r\n')" >
+                  <a  href="mailto:${email}">${email}</a><br>
+                </span>
+              </div>
+            </li>
+
+            <li>
+              <div class="inner" style="font-size:15px; color:black;">
+                <span style="color:#ec6c00;" class="fa fa-phone"></span>
+                <span tal:repeat="phone python: view.getCompanyInfo()['phone'].split('\r\n')" class="text">
+                  <a href="tel:${phone}">${phone}</a><br>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
     </div>
     <!-- <p tal:content="structure python: context.text.output"></p> -->
-<div class='alert_container'>
-    <div class='alert_inner'>
-        <div class='alert_header'>
-            登入訊息！！！
-            <span class='alert_cross close_btn' onClick="close_alert()">X</span>    
-        </div>
-        <div class='alert_msg'>
-            <p>您所登入的帳號密碼錯誤，請重新輸入</p>
-            <p>若忘記帳號密碼請與課服人員聯繫</p>
-            <button class='close_btn' onClick="close_alert()">確定</button>
-        </div>
-    </div>    
-</div>
+    <div class='alert_container'>
+        <div class='alert_inner'>
+            <div class='alert_header'>
+                登入訊息！！！
+                <span class='alert_cross close_btn' onClick="close_alert()">X</span>    
+            </div>
+            <div class='alert_msg'>
+                <p>您所登入的帳號密碼錯誤，請重新輸入</p>
+                <p>若忘記帳號密碼請與課服人員聯繫</p>
+                <button class='close_btn' onClick="close_alert()">確定</button>
+            </div>
+        </div>    
+    </div>
 
 <script>
     function login(){

@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="context/main_template/macros/master"
+  i18n:domain="daisoi.theme">
+<body>
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+          tal:define="toc context/table_of_contents|nothing;">
+
+<tal:define tal:define="service view/getServiceDescription">
+  <div class="row">
+    <div class="col-12 col-lg-5">
+      <p style="white-space: pre-line; font-weight: bold; font-size:12pt">${python: service.getObject().service_description}</p>
+    </div>
+    <div class="col-5 d-none d-lg-block">
+      <img src="${service/getURL}/@@images/description_img">
+    </div>
+  </div>
+
+  <div class="row">
+    <tal:define tal:define="item view/getVideoDescription">
+        <div class="col-xl-5">
+          <div>
+            <img src="${item/getURL}/@@images/image">
+          </div>
+          <div class="play" >
+            <ol>
+              <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
+                <li>${text}</li>
+              </tal:repeat>
+            </ol>
+          </div>
+        </div>
+        <div class="col-xl-7">
+          <div class="youtube-bg">
+          <iframe class="youtube" width="60%" height="75%" src="${python: item.getObject().url.replace('watch?v=', 'embed/')}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+    </tal:define>
+  </div>
+  
+  <div class="row">
+    <div class="col-12 text-center">
+      <p style="color:#ec6c00;">${python: service.getObject().img_top_text}</p>
+    </div>
+    <div class="col-12 text-center">
+      <img src="${service/getURL}/@@images/service_img">
+    </div>
+    <div class="col-12 text-center">
+      <p style="color:#ec6c00;">${python: service.getObject().img_bottom_text}</p>
+    </div>
+  </div>
+</tal:define>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

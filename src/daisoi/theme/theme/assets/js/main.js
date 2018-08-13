@@ -117,18 +117,24 @@
                         if ( $(window).scrollTop() > offsetTop ) {
                             nav.addClass('is-fixed');
                             nav.addClass('is-down');
-                            nav.css({"background-color":"rgba(255, 255, 255, 0.7)",
+                            $('#header-search').addClass('is-down');
+                            nav.css({"background-color":"rgba(255, 255, 255, 0.8)",
                                      "-moz-transition": "all .2s ease-in",
                                      "-o-transition": "all .2s ease-in",
                                      "-webkit-transition": "all .2s ease-in",
                                      "transition": "all .2s ease-in",
                                     });
                             injectSpace.hide();
+                            var $logo = $('#site-logo img');
+                            $logo.attr({src: $logo.data('img2')});
                         } else {
                             nav.addClass('is-fixed');
                             nav.removeClass('is-down');
+                            $('#header-search').removeClass('is-down');
                             nav.css({"background-color":"rgba(255, 255, 255, 0)"});
                             injectSpace.hide();
+                            var $logo = $('#site-logo img');
+                            $logo.attr({src: $logo.data('img1')});
                         }
 
                         if ( $(window).scrollTop() > 300 ) { 
