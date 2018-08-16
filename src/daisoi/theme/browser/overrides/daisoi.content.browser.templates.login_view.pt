@@ -67,7 +67,7 @@ input[type="text"],input[type="password"]{
 </style>
     <div class="col-sm-8 col-lg-6">
         <div style="background-image: url('++theme++theme/assets/img/member_bg.png'); background-repeat: no-repeat; padding-bottom: 1px;">
-          <h1>會員登入</h1>
+          <h1 style="padding-left: 65pt;">會員登入</h1>
         </div>
         <div class="form-group row">
           <label for="user-input" class="col-4 col-sm-3 col-form-label"><i class="fa fa-play"></i><span>帳號</span></label>

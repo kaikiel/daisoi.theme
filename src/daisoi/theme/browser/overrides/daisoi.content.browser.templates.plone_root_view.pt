@@ -51,7 +51,7 @@
 
         <div class="tp-caption text-center"
           data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-          data-y="['middle','middle','middle','middle']" data-voffset="['106','106','106','106']"
+          data-y="['middle','middle','middle','middle']" data-voffset="['106','106','106','150']"
           data-width="full"
           data-height="none"
           data-whitespace="normal"
@@ -298,7 +298,7 @@
                 <h3 class="heading" i18n:translate="">Solve the problems</h3>
               </div>
               <div class="button-wrap has-icon icon-left">
-                <a class="themesflat-button bg-white small" style="background:white;" href="tal:${python: view.getCompanyInfo()['phone']}"><span>${python: view.getCompanyInfo()['phone']}<span class="icon"><i class="autora-icon-phone-contact"></i></span></span></a>
+                <a class="themesflat-button bg-white small" style="background:white;" href="tel:${python: view.getCompanyInfo()['phone']}"><span>${python: view.getCompanyInfo()['phone']}<span class="icon"><i class="autora-icon-phone-contact"></i></span></span></a>
               </div>
             </div>
           </div>

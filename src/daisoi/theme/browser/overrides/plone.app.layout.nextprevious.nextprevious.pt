@@ -12,7 +12,8 @@
     <nav class="nextprev"
          tal:define="next view/next;
                      previous view/previous"
-         tal:condition="python:previous is not None or next is not None">
+         tal:condition="python:previous is not None or next is not None"
+         style="margin-bottom:20px" > 
       <ul class="page-prev-next">
 
         <li class="" tal:condition="previous">
@@ -46,9 +47,17 @@
             
           </a>
         </li>
+        <li class="" tal:condition="not: next">
+          <a class="next">
+            
+            <span  tal:omit-tag="" i18n:translate="">
+              next
+            </span>
+          </a>
+        </li>
+
 
       </ul>
-
     </nav>
 
   </tal:block>

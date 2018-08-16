@@ -119,7 +119,7 @@ del, .disable { text-decoration: line-through; filter: alpha(opacity=50); opacit
 table,
 th,
 td { border: 1px solid #e0e0e0; }
-table { border-collapse: separate; border-spacing: 0; border-width: 1px 0 0 1px; margin: 0 0 30px; table-layout: fixed; width: 100%; }
+table { border-collapse: separate; border-spacing: 0; border-width: 1px 0 0 1px; margin: 0 0 30px; width: 100%; }
 caption, th, td { font-weight: normal; text-align: left; }
 th { border-width: 0 1px 1px 0; font-weight: bold; }
 td { border-width: 0 1px 1px 0; }
@@ -885,8 +885,8 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 .themesflat-pagination ul li .page-numbers:hover,
 .themesflat-pagination ul li .page-numbers.current { background-color: #ec6c00; color: #fff; border-color: #ec6c00;  }
 
-.themesflat-pagination .page-prev-next { width: 100%; border: 1px solid #e7e7e7;  }
-.themesflat-pagination .page-prev-next > li { width: 49.7%; border-left: 1px solid #e7e7e7; display: inline-block; margin: 0px; padding: 13px 15px 11px 15px; }
+.themesflat-pagination .page-prev-next { width: 100%; border: 1px solid #e7e7e7; text-align: center; }
+.themesflat-pagination .page-prev-next > li { width: 49%; border-left: 1px solid #e7e7e7; display: inline-block; margin: 0px; padding: 13px 15px 11px 15px; }
 .themesflat-pagination .page-prev-next > li:first-child { border-left: 0px; } 
 .themesflat-pagination .page-prev-next > li a { display: block; text-transform: uppercase; font-size: 13px; font-family: 'Montserrat', sans-serif; color: #999; position: relative; z-index: 1;}
 .themesflat-pagination .page-prev-next > li a:before { content: ""; font-family: "FontAwesome"; font-size: 18px; line-height: 22px; position: absolute; top: 0%; text-align: center; width: 22px; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -ms-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all 0.3s ease; }
@@ -1160,7 +1160,7 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 }
 
 .two-line{
-  line-height: 1.5em;
+  line-height: 1.5em !important;
   height: 3em;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1233,4 +1233,8 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
   left:0; right:0;
   top:0; bottom:15px;
   margin:auto;
+}
+
+.sidebar-offcanvas{
+  margin: 20px 0 20px 0;
 }

@@ -83,7 +83,7 @@
     }
 
     function toSubject(sub){
-      location.replace("?img_subject="+sub)
+      location.replace("?img_subject="+encodeURIComponent(sub))
     }
   </script>
 

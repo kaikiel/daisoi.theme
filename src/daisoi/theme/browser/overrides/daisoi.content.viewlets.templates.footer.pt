@@ -95,7 +95,7 @@
           <div class="widget widget_lastest">
             <h2 class="widget-title"><a href="${python: root['getURL']}"><span>${python: root['Title']}</span></a></h2>
               <tal:repeat repeat="sub python: root['children']">
-                <p class="clearfix" style="margin: 0 0 5px;">
+                <p class="clearfix" style="margin: 0 2px 5px;">
                   <a href="${python: sub['getURL']}">${python: sub['Title']}</a>
                 </p>
               </tal:repeat>

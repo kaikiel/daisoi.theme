@@ -25,11 +25,16 @@ td{
   border:0; 
 }
 
-.problem-table td{
+.problem-table td:not(:first-child) {
   vertical-align: top;
+  min-width: 20pt;
 }
 
 .problem-table tr th{
+  border: 0;
+}
+
+.problem-table tr th:not(:first-child) {
   border-width: 0 0 1px 0;
   border-bottom-color: #ed964f;
   font-weight: bold;
@@ -37,7 +42,7 @@ td{
   background: #efeff0;
 }
 
-.problem-table tr th:first-child{
+.problem-table tr th:nth-child(2){
   border-top-left-radius: 10px;
 }
 
@@ -45,34 +50,48 @@ td{
   border-top-right-radius: 10px;
 }
 
-.problem-table tr:nth-child(2) td{
+.problem-table tr td.head-td{
+  width: 5px;
+}
+
+.problem-table tr:nth-child(2) td:not(:first-child) {
   border: solid;
   border-width: 0 1px 1px 0;
   border-bottom-color: #aeb1c9;
   border-right-color: #fadbbe;
 }
 
-.problem-table tr:nth-child(3) td{
+.problem-table tr:nth-child(3) td:not(:first-child) {
   border: solid;
   border-width: 0 1px 0 0;
   border-right-color: #fadbbe;
 }
 
-.problem-table tr td:last-child{
+.problem-table tr td:not(:first-child):last-child{
   border-right-color: transparent;
 }
 
-.problem-table tr td ul li:before{
+.problem-table tr td:not(:first-child) ul li{
+  width: 7em;
+}
+
+.problem-table tr td:not(:first-child) ul li:before{
   content: "\f111";
   font-family: FontAwesome;
 }
 
-.problem-table tr:nth-child(2) td ul li:before{
+.problem-table tr:nth-child(2) td:not(:first-child)  ul li:before{
   color: #e6260f;
 }
 
-.problem-table tr:nth-child(3) td ul li:before{
+.problem-table tr:nth-child(3) td:not(:first-child)  ul li:before{
   color: #116eb7;
+}
+
+@media (max-width: 1199px) {
+  .table-scrollbar{
+    overflow-x: auto;
+  }
 }
 
 </style>
@@ -112,8 +131,16 @@ td{
   </tal:repeat>
 </div>
 
+<div class="row">
+  <div class="col-12 text-center">
+    <p style="color: #ec6c00; font-weight: bold;">智能工廠管理為您解決工廠各種問題</p>
+  </div>
+</div>
+
+<div class="table-scrollbar">
 <table class="problem-table">
   <tr>
+    <th></th>
     <th>人員</th>
     <th>機器</th>
     <th>物料</th>
@@ -122,6 +149,8 @@ td{
   </tr>
   <tal:repeat tal:repeat="item view/getProblemTable">
     <tal:condition tal:condition="python: repeat.item.number%5 == 1" tal:content="structure string: <tr>">
+    <td class="head-td" tal:condition="python: repeat.item.number == 1" >一般工廠問題</td>
+    <td class="head-td" tal:condition="python: repeat.item.number == 6" >智慧工廠效益</td>
       <td>
         <ul>
           <tal:repeat  tal:repeat="text python: item.split('\r\n')">
@@ -132,6 +161,7 @@ td{
     <tal:condition tal:condition="python: repeat.item.number%5 == 0" tal:content="structure string: </tr>">
   </tal:repeat>
 </table>
+</div>
 
 </metal:content-core>
 </metal:content-core>
