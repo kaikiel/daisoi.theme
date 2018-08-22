@@ -21,8 +21,8 @@
                                     item_description obj/description;
                                     item_created item/created;">
               <article class="hentry data-effect">
-                <div class="post-media has-effect-icon offset-v-25 offset-h-24 data-effect-item clerafix">
-                  <a href="${item_url}"><img src="${item_url}/@@images/image" alt="Image"></a>
+                <div class="post-media has-effect-icon offset-v-25 offset-h-24 data-effect-item clerafix" style="min-height: 90px">
+                  <a href="${item_url}" tal:condition="obj/image"><img src="${item_url}/@@images/image" alt="Image"></a>
                   <div class="post-calendar">                  
                     <span class="inner">
                       <span class="entry-calendar">

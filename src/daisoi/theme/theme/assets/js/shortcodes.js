@@ -472,11 +472,14 @@
                 });
             });
 
-            $('.themesflat-filter li').on('click',function() {                           
+            $('.themesflat-filter li').on('click',function() {       
+                var $container = $('.isotope-project');
+                $container.find(".hidden").removeClass("hidden");
                 var selector = $(this).find("a").attr('data-filter');
                 $('.themesflat-filter li').removeClass('active');
                 $(this).addClass('active');
                 $container.isotope({ filter: selector });
+                loadMore(6);
                 return false;
             });
         };
@@ -512,10 +515,19 @@
     };
 
     var fancybox = function(){
+      $("#service-fancybox").fancybox({
+          helpers: {
+              title : {
+                  type : 'float'
+              }
+          }
+      });
+
       $("[data-fancybox]").fancybox({
         iframe : {
           css : {
-            width : 'fit-content',
+            width: "600px",
+            diplay: "table",
             backgroundColor: "black",
           },
           // Iframe tag attributes

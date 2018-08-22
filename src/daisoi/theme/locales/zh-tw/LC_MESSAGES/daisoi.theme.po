@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-08-06 05:18+0000\n"
+"POT-Creation-Date: 2018-08-21 07:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,31 +14,27 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:286
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:247
 msgid "12 SERVICES"
 msgstr "12大功能優勢"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:294
-msgid "12 Services Description"
-msgstr ""
-
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:124
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:147
 msgid "ABOUT Daisoi"
 msgstr "關於大碩"
 
 #: ../browser/overrides/plone.app.portlets.portlets.navigation.pt:45
 msgid "Are you interested in finding out how we can make your project. Please email us."
-msgstr "您是否有興趣了解我們如何製作您的項目。請發郵件給我們。"
+msgstr "如何接軌工業4.0智慧工廠，請來信將有專人為您服務。"
 
 #: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:27
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:164
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:175
 #: ../browser/overrides/plone.app.portlets.portlets.navigation.pt:49
 msgid "Contact Us"
-msgstr "聯絡我們"
+msgstr "聯繫大碩"
 
 #: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:29
 msgid "Contact Us Desctiption"
-msgstr ""
+msgstr "如何接軌工業4.0智慧工廠，請來信將有專人為您服務。"
 
 #: ../browser/overrides/daisoi.content.viewlets.templates.top_viewlet.pt:19
 msgid "Follow us:"
@@ -60,43 +56,59 @@ msgstr "大碩資訊"
 msgid "Installs the Plone theme package daisoi.theme."
 msgstr ""
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:182
-msgid "Main Service"
-msgstr "主要服務"
+#: ../browser/overrides/daisoi.content.browser.templates.folder_performance_view.pt:54
+msgid "LOAD MORE"
+msgstr "查看更多"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:190
-msgid "Main Service Description"
-msgstr ""
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:47
+msgid "Message*"
+msgstr "訊息*"
+
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:35
+msgid "Name*"
+msgstr "姓名*"
 
 #: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:72
 #: ../browser/overrides/daisoi.content.browser.templates.folder_performance_view.pt:59
-#: ../browser/overrides/daisoi.content.browser.templates.question_listing.pt:53
+#: ../browser/overrides/daisoi.content.browser.templates.question_listing.pt:81
 msgid "No results were found."
 msgstr "查詢不到任何結果"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:234
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:193
 msgid "Performance"
-msgstr "應用實績"
+msgstr "產業實績"
+
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:38
+msgid "Phone"
+msgstr "電話"
 
 #: ../configure.zcml:27
 msgid "Plone Theme: Theme"
 msgstr ""
 
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:50
+msgid "SEND US"
+msgstr "發送訊息"
+
 #: ../browser/overrides/daisoi.content.browser.templates.folder_news_view.pt:57
 msgid "See More"
 msgstr "查看更多"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:87
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:105
 msgid "Smart Factory"
 msgstr "更聰明的智慧工廠"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:95
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:113
 msgid "Smart Factory Description"
-msgstr "3個步驟,提升工廠營運效率"
+msgstr "3個步驟提升工廠營運效率"
 
-#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:384
+#: ../browser/overrides/daisoi.content.browser.templates.plone_root_view.pt:313
 msgid "Solve the problems"
 msgstr "立即解決您工廠所面臨的問題！！"
+
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:44
+msgid "Subject"
+msgstr "主旨"
 
 #: ../browser/overrides/daisoi.content.portlets.img_subject_portlet.pt:5
 #: ../browser/overrides/daisoi.content.portlets.news_subject_portlet.pt:5
@@ -111,21 +123,25 @@ msgstr ""
 msgid "Uninstalls the Plone theme package daisoi.theme."
 msgstr ""
 
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:43
+#: ../browser/overrides/daisoi.content.browser.templates.contact_us_view.pt:41
+msgid "Your Email*"
+msgstr "您的信箱*"
+
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:44
 msgid "next"
 msgstr "下一篇"
 
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:24
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:25
 msgid "prev"
 msgstr "前一篇"
 
 #. Default: "Go to next item"
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:39
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:40
 msgid "title_next_item"
 msgstr "前往下一篇"
 
 #. Default: "Go to previous item"
-#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:19
+#: ../browser/overrides/plone.app.layout.nextprevious.nextprevious.pt:20
 msgid "title_previous_item"
 msgstr "前往上一篇"
 

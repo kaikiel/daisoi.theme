@@ -102,12 +102,12 @@
           </div><!-- /.widget_lastest -->             
         </div><!-- /.col -->
       </tal:repeat>
-      <form class="span_5_of_1 form-inline">
-        <div class="form-group row widget" style="">
-          <label class="col-sm-5 col-form-label widget-title" for="remote_ip" i18n:translate="">your ip</label>
-          <input type="text" class="col-sm-5" id="remote_ip" value='${view/request/getClientAddr}' readonly style="padding:0 0 0 2pt; background:white;">
+      <div class="span_5_of_1 footer-ip">
+        <div class="widget" style="white-space:nowrap;">
+          <label class="widget-title" for="remote_ip" i18n:translate="">your ip</label>
+          <input type="text" id="remote_ip" value='${view/request/getClientAddr}' readonly style="padding:0 0 0 2pt; background:white; height: 22px; line-height: 22px;">
         </div><!-- /.col -->
-      </form>
+      </div>
     </div><!-- /.themesflat-row -->
   </div><!-- /#footer-widgets -->
 </footer><!-- /#footer -->

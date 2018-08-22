@@ -32,22 +32,22 @@
               <div class="themesflat-contact-form style-2 clearfix">
                 <form action="#" method="post" class="contact-form wpcf7-form">
                   <span class="wpcf7-form-control-wrap your-name">
-                    <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name*" required>
+                    <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name*" required i18n:attributes="placeholder">
                   </span>
                   <span class="wpcf7-form-control-wrap your-phone">
-                    <input type="text" tabindex="2" id="phone" name="phone" value="" class="wpcf7-form-control" placeholder="Phone">
+                    <input type="text" tabindex="2" id="phone" name="phone" value="" class="wpcf7-form-control" placeholder="Phone" i18n:attributes="placeholder">
                   </span>                              
                   <span class="wpcf7-form-control-wrap your-email">
-                    <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="Your Email*" required>
+                    <input type="email" tabindex="3" id="email" name="email" value="" class="wpcf7-form-control" placeholder="Your Email*" required i18n:attributes="placeholder">
                   </span>
                   <span class="wpcf7-form-control-wrap your-subject">
-                    <input type="text" tabindex="4" id="subject" name="subject" value="" class="wpcf7-form-control" placeholder="Subject">
+                    <input type="text" tabindex="4" id="subject" name="subject" value="" class="wpcf7-form-control" placeholder="Subject" i18n:attributes="placeholder">
                   </span>
                   <span class="wpcf7-form-control-wrap your-message">
-                     <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message*" required ></textarea>
+                     <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message*" required  i18n:attributes="placeholder"></textarea>
                   </span>                               
                   <span class="wrap-submit">
-                    <input type="submit" value="SEND US" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
+                    <input type="submit" value="SEND US" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit" i18n:attributes="value">
                   </span>                              
                 </form>
               </div><!-- /.themesflat-contact-form -->
@@ -72,7 +72,7 @@
                         <li class="clearfix">
                           <div class="inner">
                             <span class="fa fa-map-marker"></span>
-                            <span class="text" tal:content="python: view.getCompanyInfo()['address']"></span>
+                            <span class="text" tal:content="python: view.getCompanyInfo()['address']" style="color: #555555;"></span>
                           </div>
                         </li>
                         <li class="clearfix">
@@ -94,7 +94,9 @@
                         <li class="clearfix">
                           <div class="inner">
                             <span class="fa fa-print"></span>
-                            <span class="text" tal:content="python: view.getCompanyInfo()['fax']"></span>
+                            <span class="text" >
+                              <a style="color: #555555;"  href="">${python: view.getCompanyInfo()['fax']}</a><br>
+                            </span>
                           </div>
                         </li>
                       </ul>                           

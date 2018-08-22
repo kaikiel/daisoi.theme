@@ -12,7 +12,7 @@
 
 <div class="row">
   <div class="col col-12" style="margin-bottom:30px"> 
-    <tal:content tal:content="structure python: context.philosophy_description.raw">
+    <tal:content tal:content="structure python: context.philosophy_description.raw" />
     <div class="text-center">
     <img src="${context/absolute_url}/@@images/philosophy_img">
     </div>
@@ -31,7 +31,7 @@
     <img src="${context/absolute_url}/@@images/text_img">
   </div>
   <div class="col col-12"> 
-    <tal:content tal:content="structure python: context.philosophy_body.raw">
+    <tal:content tal:content="structure python: context.philosophy_body.raw" />
   </div>
 </div>
 

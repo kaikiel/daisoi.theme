@@ -64,10 +64,21 @@ input[type="text"],input[type="password"]{
     padding: 15px 0;
     font-size: 17px;
 }
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
     <div class="col-sm-8 col-lg-6">
         <div style="background-image: url('++theme++theme/assets/img/member_bg.png'); background-repeat: no-repeat; padding-bottom: 1px;">
-          <h1 style="padding-left: 65pt;">會員登入</h1>
+          <h2 style="padding-left: 65pt;">會員登入</h2>
         </div>
         <div class="form-group row">
           <label for="user-input" class="col-4 col-sm-3 col-form-label"><i class="fa fa-play"></i><span>帳號</span></label>
@@ -78,17 +89,17 @@ input[type="text"],input[type="password"]{
         <div class="form-group row">
           <label for="pw-input" class="col-4 col-sm-3 col-form-label"><i class="fa fa-play"></i><span>密碼</span></label>
           <div class="col-8 col-sm-9">
-            <input class="form-control" type="text" id="pw-input">
+            <input class="form-control" type="password" id="pw-input">
           </div>
         </div>
         <div style='text-align:right;'>
-        <button onclick="login()">登入</button>
+        <button onclick="setTimeout(login, 2000)">登入</button>
         </div>
         <div style="margin-top: 15px;">
           <ul>
             <li>
               <div class="inner">
-                <p>若您忘記帳號密碼請聯繫大碩課服人員</p>
+                <p>若您忘記帳號密碼請聯繫大碩客服人員</p>
               </div>
             </li>
 
@@ -121,7 +132,7 @@ input[type="text"],input[type="password"]{
             </div>
             <div class='alert_msg'>
                 <p>您所登入的帳號密碼錯誤，請重新輸入</p>
-                <p>若忘記帳號密碼請與課服人員聯繫</p>
+                <p>若忘記帳號密碼請與客服人員聯繫</p>
                 <button class='close_btn' onClick="close_alert()">確定</button>
             </div>
         </div>    
@@ -129,6 +140,7 @@ input[type="text"],input[type="password"]{
 
 <script>
     function login(){
+        
         alert_container = document.querySelector('.alert_container')
         alert_container.style.transition = "all .4s";
         alert_container.style.visibility = 'visible';

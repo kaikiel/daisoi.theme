@@ -19,7 +19,7 @@
               tal:attributes="class python:oddrow and 'portletItem even clearfix' or 'portletItem odd clearfix'">
             <div class="thumb data-effect-item has-effect-icon">
               <img tal:condition="python:obj.getIcon and thumb_scale"
-                   src="${obj/getURL}/@@images/image/preview" />
+                   src="${obj/getURL}/@@images/image/preview" style="object-fit: cover; width: 100%; height: 100%;"/>
               <div class="overlay-effect bg-color-2"></div>
               <div class="elm-link">
                 <a href="page-blog-single.html" class="icon-2"></a>

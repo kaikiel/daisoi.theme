@@ -12,9 +12,9 @@
 
   <div class="col-md-12">
     <ul class="themesflat-filter style-1 clearfix">
-      <li id="sAll" onclick="toSubject('')"><a href="#" >All</a></li>
+      <li id="sAll"><a href="#" data-filter="*" >All</a></li>
       <tal:repeat tal:repeat="sub view/getImgSubject">
-        <li id="s${python: ''.join(str(ord(c)) for c in sub.decode('utf8'))}"><a href="" onclick="toSubject('${sub}')" >${sub}</a></li>
+        <li id="s${python: ''.join(str(ord(c)) for c in sub.decode('utf8'))}"><a href="#" data-filter=".${sub}" >${sub}</a></li>
       </tal:repeat>
     </ul>
 
@@ -29,10 +29,10 @@
                                       item_description obj/description;
                                       item_url item/getURL;
                                       item_subject item/Subject;">
-                <div class="project-item ">
+                <div class="project-item ${python: ' '.join(item_subject)} ">
                   <div class="inner">
-                    <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-20">
-                      <img class="lazyload" data-src="${item_url}/@@images/image" alt="Image">
+                    <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-20 performance">
+                      <img class="lazyload" data-src="${item_url}/@@images/image" alt="Image" style="height: 100%; object-fit: cover; width: 100%;">
                       <div class="elm-link">
                         <a data-fancybox data-type="iframe" data-src="${item/getURL}/view" href="javascript:;" class="icon-1 icon-search"></a>
                       </div>
@@ -51,7 +51,7 @@
           </div><!-- /.themesflat-project -->
           <div class="button-wrap has-icon icon-left size-14 pf21 text-center">
             <a class="themesflat-button bg-accent pd32" id="loadMore">
-              <span>LOAD MORE <span class="icon"><i class="ion-load-c"></i></span></span>
+              <span><span i18n:translate="">LOAD MORE</span><span class="icon"><i class="ion-load-c"></i></span></span>
             </a>
           </div>
         </tal:listing>
@@ -77,8 +77,10 @@
             }
             img_subject = temp;
             $("#s"+img_subject).addClass("active");
+            $("#s"+img_subject).click();
         }else{
             $("#sAll").addClass("active");
+            $("#sAll").click();
         }
     }
 

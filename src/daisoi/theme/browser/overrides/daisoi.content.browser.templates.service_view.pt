@@ -11,9 +11,9 @@
           tal:define="toc context/table_of_contents|nothing;">
 
 <tal:define tal:define="service view/getServiceDescription">
-  <div class="row">
+  <div class="row  align-items-center">
     <div class="col-12 col-lg-5">
-      <p style="white-space: pre-line; font-weight: bold; font-size:12pt">${python: service.getObject().service_description}</p>
+      <p style="white-space: pre-line; font-weight: bold; font-size:12pt">${python: service.getObject().service_description.replace('====', '')}</p>
     </div>
     <div class="col-5 d-none d-lg-block">
       <img src="${service/getURL}/@@images/description_img">
@@ -29,7 +29,7 @@
           <div class="play" >
             <ol>
               <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
-                <li>${text}</li>
+                <li>${python: text.replace('====', '')}</li>
               </tal:repeat>
             </ol>
           </div>
@@ -44,13 +44,13 @@
   
   <div class="row">
     <div class="col-12 text-center">
-      <p style="color:#ec6c00;">${python: service.getObject().img_top_text}</p>
+      <p style="color:#ec6c00; font-size: 16px; margin: 2em 0 1em 0;">${python: service.getObject().img_top_text}</p>
     </div>
     <div class="col-12 text-center">
       <img src="${service/getURL}/@@images/service_img">
     </div>
     <div class="col-12 text-center">
-      <p style="color:#ec6c00;">${python: service.getObject().img_bottom_text}</p>
+      <p style="color:#ec6c00; font-size: 16px; margin: 1em 0 0 0;">${python: service.getObject().img_bottom_text}</p>
     </div>
   </div>
 </tal:define>

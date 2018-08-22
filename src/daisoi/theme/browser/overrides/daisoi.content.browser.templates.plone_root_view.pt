@@ -21,17 +21,11 @@
           data-title="${banner/getURL}/@@images/image">
         <!-- Main Image -->
         <img src="${banner/getURL}/@@images/image" alt="" data-bgposition="center center" data-no-retina>
-         
-        <!-- Layers -->
-        <tal:repeat tal:repeat="text python: banner.getObject().description.split('\r\n')">
+        <!-- small text -->
         <div class="tp-caption tp-resizeme text-white font-heading font-weight-600 text-center"
           data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
-          data-y="['middle','middle','middle','middle']" data-voffset="['${python: -134 + repeat.text.index*60}',
-                                                                        '${python: -134 + repeat.text.index*60}',
-                                                                        '${python: -100 + repeat.text.index*60}',
-                                                                        '${python: -60 + repeat.text.index*60}']"
-          data-fontsize="['${python: 52 - 32*repeat.text.start}','${python: 52 - 32*repeat.text.start}',
-                          '${python: 42 - 22*repeat.text.start}','${python: 32 - 16*repeat.text.start}']"
+          data-y="['middle','middle','middle','middle']" data-voffset="['-134','-134','-100','-60']"
+          data-fontsize="['20','20','20','16']"
           data-lineheight="['65','65','45','35']"
           data-width="full"
           data-height="none"
@@ -41,11 +35,36 @@
           data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
           data-mask_in="x:0px;y:[100%];" 
           data-mask_out="x:inherit;y:inherit;" 
-          data-start="${python: 100 - 300*repeat.text.start}" 
+          data-start="-200" 
           data-splitin="none" 
           data-splitout="none" 
           data-responsive_offset="on">
-          <tal:content tal:content="text"></tal:content>
+          <tal:content tal:content="python: banner.getObject().s_text"></tal:content>
+        </div>
+         
+        <!-- Layers -->
+        <tal:repeat tal:repeat="text python: banner.getObject().description.split('\r\n')">
+        <div class="tp-caption tp-resizeme text-white font-heading font-weight-600 text-center"
+          data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+          data-y="['middle','middle','middle','middle']" data-voffset="['${python: -134 + repeat.text.number*60}',
+                                                                        '${python: -134 + repeat.text.number*60}',
+                                                                        '${python: -100 + repeat.text.number*60}',
+                                                                        '${python: -60  + repeat.text.number*60}']"
+          data-fontsize="['52','52','42','32']"
+          data-lineheight="['65','65','45','35']"
+          data-width="full"
+          data-height="none"
+          data-whitespace="normal"
+          data-transform_idle="o:1;"
+          data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+          data-mask_in="x:0px;y:[100%];" 
+          data-mask_out="x:inherit;y:inherit;" 
+          data-start="100" 
+          data-splitin="none" 
+          data-splitout="none" 
+          data-responsive_offset="on">
+          <tal:content tal:content="python: text.replace('====', '')"></tal:content>
         </div>
         </tal:repeat>
 
@@ -66,7 +85,7 @@
           
           data-responsive_offset="on">
 
-          <a href="${python: banner.getObject().image_caption}" class="themesflat-button bg-accent big"><span>${banner/Title}</span></a>
+          <a href="${python: banner.getObject().link}" class="themesflat-button bg-accent big"><span>${python: banner.getObject().link_title}</span></a>
         </div>
       </li>
       <!-- /End Slide 2 -->
@@ -87,7 +106,7 @@
           <div class="sep has-icon width-125 clearfix">
             <div class="sep-icon">
               <span class="sep-icon-before sep-center sep-solid"></span>
-              <span class="icon-wrap"><i class="autora-icon-build"></i></span>
+              <span class="icon-wrap"><img src="++theme++theme/assets/img/lock_icon.png" ></span>
               <span class="sep-icon-after sep-center sep-solid"></span>
             </div>
           </div>
@@ -113,7 +132,7 @@
             <div class="text-wrap">
               <h5 class="heading"><a>${item/Title}</a></h5>
               <div class="sep clearfix"></div>
-              <p class="sub-heading" style="white-space: pre-line;">${python: item.getObject().description}</p>
+              <p class="sub-heading" style="white-space: pre-line;">${python: item.getObject().description.replace('====', '')}</p>
             </div>
           </div><!-- /.themesflat-icon-box -->
         </div><!-- /.themesflat-content-box -->                     
@@ -139,16 +158,16 @@
   <div class="container-fluid">
     <div class="row equalize sm-equalize-auto">
       <tal:define tal:define="item python: view.getIndexAbout()[0];">
-      <div class="col-md-6 half-background style-1" style="background-image: url(${item/getURL}/@@images/image);">
-        
+      <div class="col-md-6 half-background style-1" style="background-color: #f3f4f6; background-image: unset;">
+        <img src="${item/getURL}/@@images/image" /> 
       </div><!-- /.col-md-6 -->
       <div class="col-md-6 bg-light-grey">
-        <div class="themesflat-spacer clearfix" data-desktop="64" data-mobile="60" data-smobile="60"></div>
+        <div class="themesflat-spacer clearfix" data-desktop="64" data-mobile="60" data-smobile="0"></div>
         <div class="themesflat-content-box clearfix" data-margin="0 25% 0 4.5%" data-mobilemargin="0 0 0 4.5%">
           <div class="themesflat-headings style-1 clearfix">
             <h2 class="heading">${item/Title}</h2>
             <div class="sep has-width w80 accent-bg margin-top-11 clearfix"></div>                         
-            <p style="white-space: pre-line;" class="sub-heading margin-top-30" tal:content="structure python: item.getObject().description"></p>
+            <p style="white-space: pre-line;" class="sub-heading margin-top-30" tal:content="structure python: item.getObject().description.replace('====', '')"></p>
           </div>
           <div class="themesflat-spacer clearfix" data-desktop="26" data-mobile="35" data-smobile="35"></div>
           <div class="themesflat-spacer clearfix" data-desktop="42" data-mobile="35" data-smobile="35"></div>
@@ -175,7 +194,7 @@
           <div class="sep has-icon width-125 border-color-light clearfix">
             <div class="sep-icon">
               <span class="sep-icon-before sep-center sep-solid"></span>
-              <span class="icon-wrap"><i class="autora-icon-build"></i></span>
+              <span class="icon-wrap"><img src="++theme++theme/assets/img/lock_icon.png" ></span>
               <span class="sep-icon-after sep-center sep-solid"></span>
             </div>
           </div>                        
@@ -187,12 +206,12 @@
             <div class="themesflat-project style-1 data-effect clearfix">
               <div class="project-item">
                 <div class="inner">
-                  <div class="thumb data-effect-item has-effect-icon w40 offset-v-43 offset-h-20">
+                  <div class="thumb data-effect-item has-effect-icon w40 offset-v-43 offset-h-20 performance">
                     <img class="color-img" src="${item/getURL}/@@images/image/preview" alt="Image">
                     <div class="text-wrap text-center">
                       <h5 class="heading"><a>${item/Title}</a></h5>
                       <div class="elm-meta">
-                        <span><a class="two-line" tal:content="python: item.getObject().description"></a></span>
+                        <span><a class="two-line" tal:content="python: item.getObject().description.replace('====', '')"></a></span>
                       </div>
                     </div>
                     <div class="overlay-effect bg-color-3"></div>
@@ -208,7 +227,7 @@
         </div><!-- /.themesflat-carousel-box -->
         <div class="themesflat-spacer clearfix" data-desktop="41" data-mobile="35" data-smobile="35"></div>
         <div class="elm-button text-center">
-          <a href="${portal_url}/performance" class="themesflat-button bg-accent" i18n:translate>Performance</a>
+          <a href="${portal_url}/performance" class="themesflat-button bg-accent" i18n:translate="">Performance</a>
         </div>
         <div class="themesflat-spacer clearfix" data-desktop="73" data-mobile="60" data-smobile="60"></div>
       </div><!-- /.col-md-12 -->
@@ -229,22 +248,21 @@
           <div class="sep has-icon width-125 clearfix">
             <div class="sep-icon">
               <span class="sep-icon-before sep-center sep-solid"></span>
-              <span class="icon-wrap"><i class="autora-icon-build"></i></span>
+              <span class="icon-wrap"><img src="++theme++theme/assets/img/lock_icon.png" ></span>
               <span class="sep-icon-after sep-center sep-solid"></span>
             </div>
           </div>
-          <p class="sub-heading font-weight-400" i18n:translate="">12 Services Description</p>
+          <p class="sub-heading font-weight-400" tal:condition="python: view.getServiceIconFolder().description">${python: view.getServiceIconFolder().description.replace('====', '')}</p>
         </div>
         <div class="themesflat-spacer clearfix" data-desktop="57" data-mobile="35" data-smobile="35"></div>
       </div><!-- /.col-md-12 -->
     </div><!-- /.row -->
 
-    <div class="themesflat-row gutter-30 clearfix">
+    <div class="row gutter-30 clearfix">
       <tal:repeat tal:repeat="item view/getServiceIcon">
         <tal:define tal:define="is_fourth_item python: repeat.item.number%4==0;
                                 is_first_item python: repeat.item.number%4==1;"> 
-          <tal:condition tal:condition="is_first_item" tal:content='structure string:<div class="col span_1_of_4">'/>
-
+          <div class="col col-md-4 col-sm-6 col-12">
             <div class="themesflat-icon-box icon-left accent-color style-2 clearfix">
               <div class="icon-wrap" tal:define="obj item/getObject;">
                 <i class="service-icon" tal:condition="obj/hoverImg">
@@ -257,10 +275,10 @@
               <div class="text-wrap">
                 <h5 class="heading"><a>${item/Title}</a></h5>
                 <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
-                  <div class="inner">
+                  <div class="head-align inner">
                     <span class="item">
                       <span class="icon"><i class="fa fa-circle"></i></span>
-                      <span class="text">${text}</span>
+                      <span class="text">${python: text.replace('====', '')}</span>
                     </span>
                   </div>
                 </tal:repeat>
@@ -268,9 +286,7 @@
             </div><!-- /.themesflat-icon-box -->
             <div class="themesflat-spacer clearfix" data-desktop="62" data-mobile="35" data-smobile="35"></div>
 
-          <tal:condition tal:condition="is_fourth_item" tal:content='structure string:</div><!-- /.col-md-4 -->'/>
-          <tal:condition tal:condition="python: repeat.item.end and (not is_fourth_item)" 
-                             tal:content='structure string:</div><!-- /.col-md-4 -->'/>
+          </div>
 
         </tal:define>
       </tal:repeat>
@@ -298,7 +314,7 @@
                 <h3 class="heading" i18n:translate="">Solve the problems</h3>
               </div>
               <div class="button-wrap has-icon icon-left">
-                <a class="themesflat-button bg-white small" style="background:white;" href="tel:${python: view.getCompanyInfo()['phone']}"><span>${python: view.getCompanyInfo()['phone']}<span class="icon"><i class="autora-icon-phone-contact"></i></span></span></a>
+                <a class="themesflat-button bg-white small" style="background:white !important;" href="tel:${python: view.getCompanyInfo()['phone']}"><span>${python: view.getCompanyInfo()['phone']}<span class="icon"><i class="autora-icon-phone-contact"></i></span></span></a>
               </div>
             </div>
           </div>

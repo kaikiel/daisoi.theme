@@ -10,96 +10,10 @@
 <metal:content-core define-macro="content-core"
           tal:define="toc context/table_of_contents|nothing;">
 
-<style>
-td{
-  vertical-align: middle;
-  margin: 20pt;
-}
-
-.video-title:first-letter{
-  font-size: 1.2em;
-  color: #ed6d00 
-}
-
-.problem-table{
-  border:0; 
-}
-
-.problem-table td:not(:first-child) {
-  vertical-align: top;
-  min-width: 20pt;
-}
-
-.problem-table tr th{
-  border: 0;
-}
-
-.problem-table tr th:not(:first-child) {
-  border-width: 0 0 1px 0;
-  border-bottom-color: #ed964f;
-  font-weight: bold;
-  text-align: center;
-  background: #efeff0;
-}
-
-.problem-table tr th:nth-child(2){
-  border-top-left-radius: 10px;
-}
-
-.problem-table tr th:last-child{
-  border-top-right-radius: 10px;
-}
-
-.problem-table tr td.head-td{
-  width: 5px;
-}
-
-.problem-table tr:nth-child(2) td:not(:first-child) {
-  border: solid;
-  border-width: 0 1px 1px 0;
-  border-bottom-color: #aeb1c9;
-  border-right-color: #fadbbe;
-}
-
-.problem-table tr:nth-child(3) td:not(:first-child) {
-  border: solid;
-  border-width: 0 1px 0 0;
-  border-right-color: #fadbbe;
-}
-
-.problem-table tr td:not(:first-child):last-child{
-  border-right-color: transparent;
-}
-
-.problem-table tr td:not(:first-child) ul li{
-  width: 7em;
-}
-
-.problem-table tr td:not(:first-child) ul li:before{
-  content: "\f111";
-  font-family: FontAwesome;
-}
-
-.problem-table tr:nth-child(2) td:not(:first-child)  ul li:before{
-  color: #e6260f;
-}
-
-.problem-table tr:nth-child(3) td:not(:first-child)  ul li:before{
-  color: #116eb7;
-}
-
-@media (max-width: 1199px) {
-  .table-scrollbar{
-    overflow-x: auto;
-  }
-}
-
-</style>
-
 <div class="row" tal:define="item view/getTopText">
   <div class="col-12 col-lg-8">
-    <p style="white-space: pre-line; font-weight: bold; font-size:12pt">${python: item.getObject().description_header}</p>
-    <p style="white-space: pre-line;">${python: item.getObject().description_text}</p>
+    <p style="white-space: pre-line; font-weight: bold; font-size:12pt">${python: item.getObject().description_header.replace('====', '')}</p>
+    <p style="white-space: pre-line;">${python: item.getObject().description_text.replace('====', '')}</p>
   </div>
   <div class="col-4 d-none d-lg-block">
     <img src="${item/getURL}/@@images/description_img">
@@ -110,14 +24,14 @@ td{
   <tal:repeat tal:repeat="item view/getVideoDescription">
       <div class="col-xl-5">
         <div style="background-image:url('${item/getURL}/@@images/image'); background-repeat:no-repeat">
-          <h2 class="video-title" style="margin-left: 60pt">${item/Title}</h2> 
+          <h2 class="video-title" style="margin-left: 60pt" tal:content="structure python: view.getLargeText(item.Title)"></h2> 
         </div>
         <div style="margin-left: 65pt">
           <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
-            <div class="inner">
+            <div class="head-align inner">
               <span class="item">
                 <span class="icon"><i style="color:#1666b0;" class="fa fa-circle"></i></span>
-                <span class="text">${text}</span>
+                <span class="text">${python: text.replace('====', '')}</span>
               </span>
             </div>
           </tal:repeat>
@@ -125,7 +39,13 @@ td{
       </div>
       <div class="col-xl-7">
         <div class="youtube-bg">
-        <iframe class="youtube" width="60%" height="75%" src="${python: item.getObject().url.replace('watch?v=', 'embed/')}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <?python 
+          youtube_url = item.getObject().url.replace('watch?v=', 'embed/')
+          and_index = youtube_url.find('&')
+          if and_index != -1:
+              youtube_url = youtube_url.replace(youtube_url[and_index:], '')
+        ?>
+        <iframe class="youtube" width="60%" height="75%" src="${youtube_url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
   </tal:repeat>
@@ -133,12 +53,11 @@ td{
 
 <div class="row">
   <div class="col-12 text-center">
-    <p style="color: #ec6c00; font-weight: bold;">智能工廠管理為您解決工廠各種問題</p>
+    <p style="color: #ec6c00; font-weight: bold; font-size: 16px; margin: 2em 0 1em 0;">智慧工廠效益分析(導入前/導入後)</p>
   </div>
 </div>
 
-<div class="table-scrollbar">
-<table class="problem-table">
+<table class="problem-table d-none d-xl-block">
   <tr>
     <th></th>
     <th>人員</th>
@@ -148,9 +67,9 @@ td{
     <th>環控</th>
   </tr>
   <tal:repeat tal:repeat="item view/getProblemTable">
-    <tal:condition tal:condition="python: repeat.item.number%5 == 1" tal:content="structure string: <tr>">
-    <td class="head-td" tal:condition="python: repeat.item.number == 1" >一般工廠問題</td>
-    <td class="head-td" tal:condition="python: repeat.item.number == 6" >智慧工廠效益</td>
+    <tal:condition tal:condition="python: repeat.item.number%5 == 1" tal:content="structure string: <tr>" />
+    <td tal:condition="python: repeat.item.number == 1" >一般工廠問題</td>
+    <td tal:condition="python: repeat.item.number == 6" >智慧工廠效益</td>
       <td>
         <ul>
           <tal:repeat  tal:repeat="text python: item.split('\r\n')">
@@ -158,10 +77,30 @@ td{
           </tal:repeat>
         </ul>
       </td>
-    <tal:condition tal:condition="python: repeat.item.number%5 == 0" tal:content="structure string: </tr>">
+    <tal:condition tal:condition="python: repeat.item.number%5 == 0" tal:content="structure string: </tr>" />
   </tal:repeat>
 </table>
-</div>
+
+<table class="problem-table two-col d-block d-xl-none">
+  <tr>
+    <th></th>
+    <th>一般工廠問題</th>
+    <th>智慧工廠效益</th>
+  </tr>
+  <tal:repeat tal:repeat="item view/getProblemTable_mobile">
+    <tr>
+    <tal:repeat tal:repeat="col_td item">
+      <td>
+        <ul>
+          <tal:repeat  tal:repeat="text python: col_td.split('\r\n')">
+            <li>${text}</li>
+          </tal:repeat>
+        </ul>
+      </td>
+    </tal:repeat>
+    </tr>
+  </tal:repeat>
+</table>
 
 </metal:content-core>
 </metal:content-core>

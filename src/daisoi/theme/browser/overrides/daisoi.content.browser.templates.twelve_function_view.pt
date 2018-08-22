@@ -11,10 +11,11 @@
           tal:define="toc context/table_of_contents|nothing;">
   <table style="border:0;">
     <tr>
-      <td style="padding:0;">
-        <h3 class="align-middle">12大功能優勢</h3>
+      <td style="width:50%">
+        <h3 class="align-middle">${view/context/title}</h3>
+        <span class="align-middle" style="white-space: pre-line;">${python: view.context.description.replace('====', '')}</span>
       </td>
-      <td>
+      <td style="width:50%">
         <img src="++theme++theme/assets/img/circle.png">
       </td>
     </tr>
@@ -26,12 +27,12 @@
       <div>
         <img src="${item/getURL}/@@images/image">
       </div>
-      <div style="margin-left: 40pt">
+      <div style="margin: 1em 0 1em 40pt; max-width: 21em;">
         <tal:repeat tal:repeat="text python: item.getObject().description.split('\r\n')">
-          <div class="inner">
+          <div class="head-align inner">
             <span class="item">
               <span class="icon"><i style="color:#1666b0;" class="fa fa-circle"></i></span>
-              <span class="text">${text}</span>
+              <span class="text">${python: text.replace('====', '')}</span>
             </span>
           </div>
         </tal:repeat>

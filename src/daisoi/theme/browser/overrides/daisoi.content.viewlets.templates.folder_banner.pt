@@ -1,7 +1,3 @@
-<div id="folder-banner" 
-     tal:define="self_topImg python: getattr(context, 'topImg', None) is not None;
-                 parent_topImg python: getattr(context.getParentNode(), 'topImg', None) is not None;">
-    <img tal:condition="self_topImg" src="${python: context.absolute_url()}/@@images/topImg"/>
-    <img tal:condition="python: not self_topImg and parent_topImg" src="${python: context.getParentNode().absolute_url()}/@@images/topImg"/>
-    <img tal:condition="python: not self_topImg and not parent_topImg" src="${view/context/portal_url}/resource/website_image/default_folder_banner"/>
+<div id="folder-banner">
+    <img src="${view/getTopImage}"/>
 </div>

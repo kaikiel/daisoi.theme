@@ -13,8 +13,8 @@
 <div id="site-content" class="site-content clearfix news-site-content">
   <div id="inner-content" class="inner-content-wrap">
     <article class="hentry data-effect">
-      <div class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24 clerafix">
-        <a href="${view/context/absolute_url}"><img src="${view/context/absolute_url}/@@images/image" alt="Image"></a>
+      <div class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24 clerafix" style="min-height:90px;">
+        <a href="${view/context/absolute_url}" tal:condition="view/context/image"><img src="${view/context/absolute_url}/@@images/image" alt="Image"></a>
         <div class="post-calendar">                  
           <span class="inner">
             <span class="entry-calendar">
