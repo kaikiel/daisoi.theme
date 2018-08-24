@@ -1,0 +1,1 @@
+<title tal:content="structure python:view.site_title.replace('&mdash'.decode('utf-8'), '-').replace(';', '')">Site Title</title>

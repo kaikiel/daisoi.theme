@@ -14,28 +14,30 @@
   <div id="inner-content" class="inner-content-wrap">
     <article class="hentry data-effect">
       <div class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24 clerafix" style="min-height:90px;">
-        <a href="${view/context/absolute_url}" tal:condition="view/context/image"><img src="${view/context/absolute_url}/@@images/image" alt="Image"></a>
         <div class="post-calendar">                  
           <span class="inner">
             <span class="entry-calendar">
-              <span class="day">${python: view.context.created().day()}</span>
-              <span class="month">${python: view.context.created().Mon()}</span>
+              <span class="day">${python: view.context.effective().day()}</span>
+              <span class="month">${python: view.context.effective().Mon()}</span>
             </span>
           </span>               
         </div>
+      </div><!-- /.post-media -->
+      <div tal:condition="view/context/image" class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24 clerafix" style="min-height:90px;">
+        <a href="${view/context/absolute_url}"><img src="${view/context/absolute_url}/@@images/image" alt="Image"></a>
       </div><!-- /.post-media -->
 
       <div class="post-content-wrap clearfix">
         <h2 class="post-title">
           <span class="post-title-inner">
-            <a href="page-blog-single.html">${view/context/title}</a>
+            <a href="${view/context/absolute_url}">${view/context/title}</a>
           </span>
         </h2><!-- /.post-title -->
         <div class="post-meta">
           <div class="post-meta-content">
             <div class="post-meta-content-inner">
               <span class="post-date item"><span class="inner"><span class="entry-date">
-                            ${python: view.context.created().strftime('%b %d, %Y')}
+                            ${python: view.context.effective().strftime('%b %d, %Y')}
               </span></span></span>
               <span class="post-by-author item"><span class="inner">By: ${view/context/Creator}</span></span>
             </div>

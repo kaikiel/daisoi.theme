@@ -520,7 +520,7 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 .menu-has-search #site-header #main-nav { right: 28px; }
 .menu-has-search #site-header #header-search  { display: block; }
 
-#site-header #header-search { position: absolute; right: -5px; top: 50%; z-index: 10; display: none; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);transform: translateY(-50%);  }
+#site-header #header-search { position: absolute; right: -20px; top: 50%; z-index: 10; display: none; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);-o-transform: translateY(-50%);transform: translateY(-50%);  }
 
 /* Site Logo */
 #site-logo { float: left; max-width: 100%; }
@@ -557,9 +557,11 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 
 /* Search icon */
 #site-header .header-search-icon { display: block; font-size: 14px; line-height: 100px; }
-#site-header .header-youtube-icon { display: block; font-size: 20px; line-height: 100px; }
+#site-header .header-youtube-icon { margin-left: 5px; font-size: 20px; line-height: 100px; }
 #header-search .header-youtube-icon .youtube-icon { border-radius: 50%; padding: 0.2em 0.2em; background: white; color: red; }
+#header-search .header-youtube-icon .facebook-icon { border-radius: 50%; padding: 0.2em 0.2em; background: white; color: #3b5998; }
 #header-search.is-down .header-youtube-icon .youtube-icon { background: white; color: red; }
+#header-search.is-down .header-youtube-icon .facebook-icon { background: white; color: #3b5998; }
 
 /* Search Form */
 #site-header .header-search-form { position: absolute; right: 0px; top: 100%;  width: 270px; opacity: 0; visibility: hidden; }
@@ -1105,6 +1107,7 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
   .themesflat-row.gutter-mobile .span_1_of_3 ,
 	.themesflat-row .span_1_of_4 { width: 100%; }
         .themesflat-row .span_5_of_1 { width: 33.3%; float:left; padding: 0 15px 0 15px;}
+        .themesflat-row .span_5_of_1.footer-ip{ clear:both;}
   .themesflat-row .span_5_of_1:nth-child(4) { clear: unset; }
 
 	.padding-left-13 { padding: 0px !important; }
@@ -1278,4 +1281,8 @@ body.template-plone_root_view #main-content { padding-top: 0; padding-bottom: 0;
 
 a{
   cursor: pointer !important;
-} 
+}
+ 
+a:not([href]):not([onclick]) {
+  cursor: default !important;
+}

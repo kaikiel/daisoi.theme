@@ -1,7 +1,12 @@
 <html xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="daisoi.theme">
 
+
 <div id="header-search">
+  <a href="${python: view.getCompanyInfo()['fb_link']}" target='_blank' class="header-youtube-icon" tal:condition="python: view.getCompanyInfo()['fb_link']">
+    <span><i class="facebook-icon fa fa-facebook-square"></i>
+    </span>
+  </a>
   <a href="${python: view.getCompanyInfo()['youtube_link']}" target='_blank' class="header-youtube-icon">
     <span><i class="youtube-icon fa fa-youtube-play"></i>
     </span>
@@ -105,7 +110,7 @@
       <div class="span_5_of_1 footer-ip">
         <div class="widget" style="white-space:nowrap;">
           <label class="widget-title" for="remote_ip" i18n:translate="">your ip</label>
-          <input type="text" id="remote_ip" value='${view/request/getClientAddr}' readonly style="padding:0 0 0 2pt; background:white; height: 22px; line-height: 22px;">
+          <span id="remote_ip" style="padding:0 3px 0 3px; background:white; height: 22px; line-height: 22px;">${python: view.request['REMOTE_ADDR']}</span>
         </div><!-- /.col -->
       </div>
     </div><!-- /.themesflat-row -->

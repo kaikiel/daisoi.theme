@@ -62,7 +62,7 @@
               <div class="themesflat-tabs style-1 w168 clearfix">
                 <ul class="tab-title clearfix">
                   <li class="item-title active">
-                    <span class="inner" i18n:translate="">Head Office</span>
+                    <span class="inner" style="cursor: default;" i18n:translate="">Head Office</span>
                   </li>
                 </ul>
                 <div class="tab-content-wrap clearfix">
@@ -95,7 +95,7 @@
                           <div class="inner">
                             <span class="fa fa-print"></span>
                             <span class="text" >
-                              <a style="color: #555555;"  href="">${python: view.getCompanyInfo()['fax']}</a><br>
+                              <a style="color: #555555;" >${python: view.getCompanyInfo()['fax']}</a><br>
                             </span>
                           </div>
                         </li>

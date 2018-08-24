@@ -534,7 +534,11 @@
           attr: {
             scrolling: "no"
           }
-        },
+        }
+      });
+
+      $(document).keyup(function() {
+        $.fancybox.close();
       });
     };
         
@@ -568,20 +572,22 @@
     var loadMore = function (toShow) {
        var $container = $('.isotope-project'); 
        var iso = $container.data('isotope'); // get Isotope instance
-       $container.find(".hidden").removeClass("hidden");
-       var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
-         return item.element;
-       });
-       $(hiddenElems).addClass('hidden');
-       $container.isotope('layout');
+       if(iso){
+           $container.find(".hidden").removeClass("hidden");
+           var hiddenElems = iso.filteredItems.slice(toShow, iso.filteredItems.length).map(function(item) {
+             return item.element;
+           });
+           $(hiddenElems).addClass('hidden');
+           $container.isotope('layout');
 
-       //when no more to load, hide show more button
-       if (hiddenElems.length == 0) {
-         jQuery("#loadMore").hide();
-       } else {
-         jQuery("#loadMore").show();
+           //when no more to load, hide show more button
+           if (hiddenElems.length == 0) {
+             jQuery("#loadMore").hide();
+           } else {
+             jQuery("#loadMore").show();
+           }
+
        }
-
     };
     
     // Dom Ready
@@ -600,11 +606,11 @@
         swClick();
         fancybox();
         hoverImg();
+        showlatter();
         $( window ).load(function() {
             flatOwl();
             Parallax();
             inViewport();
-            showlatter();
         });
     });
 

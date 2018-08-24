@@ -19,10 +19,9 @@
                                     item_title item/Title;
                                     item_url item/getURL;
                                     item_description obj/description;
-                                    item_created item/created;">
+                                    item_created item/effective;">
               <article class="hentry data-effect">
                 <div class="post-media has-effect-icon offset-v-25 offset-h-24 data-effect-item clerafix" style="min-height: 90px">
-                  <a href="${item_url}" tal:condition="obj/image"><img src="${item_url}/@@images/image" alt="Image"></a>
                   <div class="post-calendar">                  
                     <span class="inner">
                       <span class="entry-calendar">
@@ -32,6 +31,9 @@
                     </span>               
                   </div>
                 </div><!-- /.post-media -->
+                <div tal:condition="obj/image" class="post-media has-effect-icon offset-v-25 offset-h-24 data-effect-item clerafix">
+                  <a href="${item_url}"><img src="${item_url}/@@images/image" alt="Image"></a>
+                </div><!-- /.post-media -->
 
                 <div class="post-content-wrap clearfix">
                   <h2 class="post-title">
@@ -39,7 +41,7 @@
                       <a href="${item_url}">${item_title}</a>
                     </span>
                   </h2><!-- /.post-title -->
-                  <div class="post-meta">
+                  <div class="post-meta" style="margin-bottom: 0px;">
                     <div class="post-meta-content">
                       <div class="post-meta-content-inner">
                         <span class="post-date item"><span class="inner"><span class="entry-date">
@@ -49,7 +51,7 @@
                       </div>
                     </div>
                   </div><!-- /.post-meta -->
-                  <div class="post-content post-excerpt">
+                  <div class="post-content post-excerpt" style="margin-bottom: 12px;">
                     <p>${item_description}</p>
                   </div><!-- /.post-excerpt -->
                   <div class="post-read-more">

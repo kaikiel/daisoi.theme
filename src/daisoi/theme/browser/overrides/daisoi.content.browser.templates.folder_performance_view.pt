@@ -50,7 +50,7 @@
             </tal:repeat>
           </div><!-- /.themesflat-project -->
           <div class="button-wrap has-icon icon-left size-14 pf21 text-center">
-            <a class="themesflat-button bg-accent pd32" id="loadMore">
+            <a class="themesflat-button bg-accent pd32" id="loadMore" style="cursor: pointer !important;">
               <span><span i18n:translate="">LOAD MORE</span><span class="icon"><i class="ion-load-c"></i></span></span>
             </a>
           </div>
