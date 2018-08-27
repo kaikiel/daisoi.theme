@@ -110,7 +110,13 @@
       <div class="span_5_of_1 footer-ip">
         <div class="widget" style="white-space:nowrap;">
           <label class="widget-title" for="remote_ip" i18n:translate="">your ip</label>
-          <span id="remote_ip" style="padding:0 3px 0 3px; background:white; height: 22px; line-height: 22px;">${python: view.request['REMOTE_ADDR']}</span>
+<?python
+from plone import api
+userIp = view.request.get('HTTP_X_FORWARDED_FOR')
+if not userIp:
+    userIp = view.request.get('REMOTE_ADDR')
+?>
+          <span id="remote_ip" style="padding:0 3px 0 3px; background:white; height: 22px; line-height: 22px;">${userIp}</span>
         </div><!-- /.col -->
       </div>
     </div><!-- /.themesflat-row -->
