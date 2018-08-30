@@ -286,163 +286,167 @@
 
     var googleMap = function () {
         // gmap default
-        if ($().gmap3) {
-            var address = $(".themesflat-map").data("address");
-            var data = JSON.parse('[{"address":"'+ address +'","content":""}]');
-            var geocoder = new google.maps.Geocoder();
-            $(".themesflat-map")
-                .gmap3({
-                    map: {
-                        options: {
-                            zoom: 15,
-                            center: [24.9654143,121.2261115],
-                            scrollwheel: true
-                        },
-                    },
-                });
-        }
-        // json loop
-        $.each(data, function (key, val) {
-            $('.themesflat-map').gmap3({
-                marker: {
-                    values: [{
-                        address: val.address,
+        if($(".googleMap")){
+            $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAIEU6OT3xqCksCetQeNLIPps6-AYrhq-s&region=GB', function(){
+                if ($().gmap3) {
+                    var address = $(".themesflat-map").data("address");
+                    var data = JSON.parse('[{"address":"'+ address +'","content":""}]');
+                    var geocoder = new google.maps.Geocoder();
+                    $(".themesflat-map")
+                        .gmap3({
+                            map: {
+                                options: {
+                                    zoom: 15,
+                                    center: [24.9654143,121.2261115],
+                                    scrollwheel: true
+                                },
+                            },
+                        });
+                }
+                // json loop
+                $.each(data, function (key, val) {
+                    $('.themesflat-map').gmap3({
+                        marker: {
+                            values: [{
+                                address: val.address,
 
-                        }]
-                },
-                styledmaptype: {
-                    id: "Daisoi",
-                    options: {
-                        name: "Daisoi"
-                    },
-                    styles: [
-                        {
-                            "featureType": "administrative",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "saturation": "-100"
-                                }
-                            ]
+                                }]
                         },
-                        {
-                            "featureType": "administrative.province",
-                            "elementType": "all",
-                            "stylers": [
+                        styledmaptype: {
+                            id: "Daisoi",
+                            options: {
+                                name: "Daisoi"
+                            },
+                            styles: [
                                 {
-                                    "visibility": "off"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "landscape",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "saturation": -100
+                                    "featureType": "administrative",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "saturation": "-100"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "lightness": 65
+                                    "featureType": "administrative.province",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "visibility": "off"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "visibility": "on"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "poi",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "saturation": -100
+                                    "featureType": "landscape",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "saturation": -100
+                                        },
+                                        {
+                                            "lightness": 65
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "lightness": "50"
+                                    "featureType": "poi",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "saturation": -100
+                                        },
+                                        {
+                                            "lightness": "50"
+                                        },
+                                        {
+                                            "visibility": "simplified"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "visibility": "simplified"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "saturation": "-100"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.highway",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "visibility": "simplified"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.arterial",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "lightness": "30"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "road.local",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "lightness": "40"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "transit",
-                            "elementType": "all",
-                            "stylers": [
-                                {
-                                    "saturation": -100
+                                    "featureType": "road",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "saturation": "-100"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "visibility": "simplified"
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "geometry",
-                            "stylers": [
-                                {
-                                    "hue": "#ffff00"
+                                    "featureType": "road.highway",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "visibility": "simplified"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "lightness": -25
+                                    "featureType": "road.arterial",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "lightness": "30"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "saturation": -97
-                                }
-                            ]
-                        },
-                        {
-                            "featureType": "water",
-                            "elementType": "labels",
-                            "stylers": [
-                                {
-                                    "lightness": -25
+                                    "featureType": "road.local",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "lightness": "40"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "saturation": -100
+                                    "featureType": "transit",
+                                    "elementType": "all",
+                                    "stylers": [
+                                        {
+                                            "saturation": -100
+                                        },
+                                        {
+                                            "visibility": "simplified"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "water",
+                                    "elementType": "geometry",
+                                    "stylers": [
+                                        {
+                                            "hue": "#ffff00"
+                                        },
+                                        {
+                                            "lightness": -25
+                                        },
+                                        {
+                                            "saturation": -97
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "water",
+                                    "elementType": "labels",
+                                    "stylers": [
+                                        {
+                                            "lightness": -25
+                                        },
+                                        {
+                                            "saturation": -100
+                                        }
+                                    ]
                                 }
                             ]
                         }
-                    ]
-                }
+                    });
+                });
             });
-        });
+        }
     };
 
     var flatCounter = function() {
@@ -550,6 +554,7 @@
                 $(this).find('img').attr('src', $(this).find('img').data('img1'))
             })
         }
+        $("img.lazyload").lazyload();
     };
  
     var showlatter = function(){

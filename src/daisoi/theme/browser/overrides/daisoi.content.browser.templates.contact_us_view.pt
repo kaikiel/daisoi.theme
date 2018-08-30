@@ -105,7 +105,7 @@
                 </div>
               </div><!-- /.themesflat-tabs -->
               <div class="themesflat-spacer clearfix" data-desktop="20" data-mobile="35" data-smobile="35"></div>
-              <div class="themesflat-map" data-address="${python: view.getCompanyInfo()['address']}"></div>
+              <div class="themesflat-map googleMap" data-address="${python: view.getCompanyInfo()['address']}"></div>
             </div><!-- /.col-md-6 -->
           </div><!-- /.row -->
           <div class="row">

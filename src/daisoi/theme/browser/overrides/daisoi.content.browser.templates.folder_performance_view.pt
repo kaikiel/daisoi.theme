@@ -13,9 +13,11 @@
   <div class="col-md-12">
     <ul class="themesflat-filter style-1 clearfix">
       <li id="sAll"><a href="#" data-filter="*" >All</a></li>
-      <tal:repeat tal:repeat="sub view/getImgSubject">
-        <li id="s${python: ''.join(str(ord(c)) for c in sub.decode('utf8'))}"><a href="#" data-filter=".${sub}" >${sub}</a></li>
-      </tal:repeat>
+      <tal:define tal:define="imgSub view/getImgSubject">
+        <tal:repeat tal:repeat="sub imgSub">
+          <li id="s${python: ''.join(str(ord(c)) for c in sub.decode('utf8'))}"><a href="#" data-filter=".${sub}" >${python: imgSub[sub]['Title']}</a></li>
+        </tal:repeat>
+      </tal:define>
     </ul>
 
     <metal:listingmacro define-macro="listing">
@@ -68,8 +70,7 @@
 
   <script>
     document.onreadystatechange = function subColor() {
-        var url = new URL(location.href);
-        img_subject  = url.searchParams.get("img_subject");
+        img_subject  = getQueryString("img_subject");
         if(img_subject){
             var temp = "";
             for(var i=0; i<img_subject.length; i++){
@@ -86,6 +87,28 @@
 
     function toSubject(sub){
       location.replace("?img_subject="+encodeURIComponent(sub))
+    }
+
+    function getQueryString() {
+      var key = false, res = {}, itm = null;
+      // get the query string without the ?
+      var qs = location.search.substring(1);
+      // check for the key as an argument
+      if (arguments.length > 0 && arguments[0].length > 1)
+        key = arguments[0];
+      // make a regex pattern to grab key/value
+      var pattern = /([^&=]+)=([^&]*)/g;
+      // loop the items in the query string, either
+      // find a match to the argument, or build an object
+      // with key/value pairs
+      while (itm = pattern.exec(qs)) {
+        if (key !== false && decodeURIComponent(itm[1]) === key)
+          return decodeURIComponent(itm[2]);
+        else if (key === false)
+          res[decodeURIComponent(itm[1])] = decodeURIComponent(itm[2]);
+      }
+
+      return key === false ? res : null;
     }
   </script>
 
