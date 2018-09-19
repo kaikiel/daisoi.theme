@@ -11,6 +11,11 @@
     <span><i class="youtube-icon fa fa-youtube-play"></i>
     </span>
   </a>
+<!--        <a href="javascript:void(0)" id="portaltab-s2t" title="繁簡轉換">
+            <i class="fa fa-language" aria-hidden="true"></i>
+        </a>
+-->
+
 </div><!-- /#header-youtube -->
 
 <!-- PARTNER -->
