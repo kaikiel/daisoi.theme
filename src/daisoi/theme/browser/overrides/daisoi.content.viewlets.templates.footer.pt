@@ -100,6 +100,7 @@
         <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="35"></div>
       </div><!-- /.col -->
       <tal:repeat repeat="root view/getSiteMap">
+<tal:cond condition="python:root['id'] != 's2t'">
         <div class="span_5_of_1">
           <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="0"></div>
           <div class="widget widget_lastest">
@@ -111,6 +112,7 @@
               </tal:repeat>
           </div><!-- /.widget_lastest -->             
         </div><!-- /.col -->
+</tal:cond>
       </tal:repeat>
       <div class="span_5_of_1 footer-ip">
         <div class="widget" style="white-space:nowrap;">
@@ -139,7 +141,7 @@ if not userIp:
       <div class="bottom-bar-menu">
         <ul class="bottom-nav">
           <tal:repeat repeat="tab view/getTopTabs">
-            <li class="menu-item">
+            <li class="menu-item" tal:condition="python:tab['id'] != 's2t'">
               <a href="${python: tab['url']}">${python: tab['name']}</a>
             </li>
           </tal:repeat>
