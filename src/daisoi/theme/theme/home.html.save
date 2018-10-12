@@ -4,6 +4,7 @@
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <title>Autora - Construction Business HTMl Template</title>
 
@@ -200,7 +201,7 @@
 <a id="scroll-top" style="cursor: pointer !important;"></a>
 
 <!-- Javascript -->
-<!-- <script src="assets/js/jquery.min.js"></script> -->
+<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/tether.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -234,9 +235,73 @@
 <script src="includes/rev-slider/js/extensions/revolution.extension.video.min.js"></script>
 
 <!-- tongwen -->
-<!-- <script type="text/javascript" src="assets/js/tongwen.js"></script> -->
+<script type="text/javascript" src="assets/js/tongwen.js"></script>
 
 
+<!-- 繁簡轉換 -->
+<script>
+$(document).ready(function(){
+
+  // 使 a tag 無效
+  $("#portaltab-s2t a").click(function(event){
+    event.preventDefault();
+  });
+
+  $(function() {
+      var lang = getCookie('lang');
+      if(lang == 'tw'){
+          TongWen.trans2Trad(document);
+      }else{
+          TongWen.trans2Simp(document);
+      }
+  });
+
+  $("#portaltab-s2t").click(function(){
+      var lang = getCookie('lang');
+      if(lang == 'tw'){
+          setCookie('lang', 'cn');
+          TongWen.trans2Simp(document);
+$('#portaltab-s2t a').text('繁體')
+//document.getElementById("portaltab-s2").innerText = '繁體'
+      }else{
+          setCookie('lang', 'tw');
+          TongWen.trans2Trad(document);
+$('#portaltab-s2t a').text('簡體')
+/document.getElementById("portaltab-s2").innerText = '簡體'
+      }
+  });
+
+  function toTradChinese(obj) {
+      return TongWen.convert(obj, 'traditional');
+  }
+
+  function toSimpChinese(obj) {
+      return TongWen.convert(obj, 'simplified');
+  }
+
+  function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "tw";
+  }
+});
+</script>
 
 </body>
 </html>
