@@ -105,7 +105,8 @@
                 </div>
               </div><!-- /.themesflat-tabs -->
               <div class="themesflat-spacer clearfix" data-desktop="20" data-mobile="35" data-smobile="35"></div>
-              <div class="themesflat-map googleMap" data-address="${python: view.getCompanyInfo()['address']}"></div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.0205167714726!2d121.22433961500492!3d24.96541658400457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682305240cdd43%3A0x8fbb61ce9844738a!2z5aSn56Kp5pm66IO956eR5oqA!5e0!3m2!1szh-TW!2stw!4v1537431753636" width="600" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+
             </div><!-- /.col-md-6 -->
           </div><!-- /.row -->
           <div class="row">
